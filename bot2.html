@@ -1,0 +1,4072 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Re-Volt Legal AI - Official Legal Assistant of Re-Volt Beverage Ltd. Bangladesh">
+<meta name="theme-color" content="#0A7CFF">
+<title>Re-Volt Legal AI – Official Legal Assistant | Re-Volt Beverage Ltd.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --primary: #0A7CFF;
+  --primary-dark: #0062CC;
+  --primary-light: #4DA3FF;
+  --secondary: #00D084;
+  --secondary-dark: #00B870;
+  --accent: #FF6B00;
+  --accent-light: #FF8533;
+  --purple: #8B5CF6;
+  --pink: #EC4899;
+  --bg: #F0F4F8;
+  --bg2: #FFFFFF;
+  --bg3: #E2E8F0;
+  --bg4: #F8FAFC;
+  --text: #0F172A;
+  --text2: #475569;
+  --text3: #94A3B8;
+  --glass: rgba(255,255,255,0.85);
+  --glass-border: rgba(255,255,255,0.5);
+  --shadow: 0 10px 40px rgba(0,0,0,0.08);
+  --shadow2: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow3: 0 25px 50px -12px rgba(0,0,0,0.15);
+  --chat-user: linear-gradient(135deg, #0A7CFF 0%, #0062CC 100%);
+  --chat-ai: var(--bg2);
+  --sidebar-bg: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  --input-bg: #FFFFFF;
+  --border: #E2E8F0;
+  --border2: #CBD5E1;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --gradient1: linear-gradient(135deg, #0A7CFF, #00D084);
+  --gradient2: linear-gradient(135deg, #8B5CF6, #EC4899);
+  --gradient3: linear-gradient(135deg, #FF6B00, #FF8533);
+}
+[data-theme="dark"] {
+  --bg: #0A0A0F;
+  --bg2: #12121A;
+  --bg3: #1E1E2D;
+  --bg4: #16161F;
+  --text: #F1F5F9;
+  --text2: #CBD5E1;
+  --text3: #64748B;
+  --glass: rgba(18,18,26,0.9);
+  --glass-border: rgba(50,50,70,0.5);
+  --shadow: 0 10px 40px rgba(0,0,0,0.4);
+  --shadow2: 0 4px 20px rgba(0,0,0,0.3);
+  --chat-ai: #1A1A25;
+  --sidebar-bg: linear-gradient(180deg, #12121A 0%, #0A0A0F 100%);
+  --input-bg: #1A1A25;
+  --border: #2D2D3D;
+  --border2: #3D3D50;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  height:100vh;
+  height:100dvh;
+  overflow:hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width:6px; height:6px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb { background:var(--text3); border-radius:10px; }
+::-webkit-scrollbar-thumb:hover { background:var(--text2); }
+
+/* Selection */
+::selection { background:var(--primary); color:#fff; }
+
+/* Animations */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.7;transform:scale(0.98)} }
+@keyframes glow { 0%,100%{box-shadow:0 0 20px rgba(10,124,255,0.3)} 50%{box-shadow:0 0 40px rgba(10,124,255,0.5)} }
+@keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes slideIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+@keyframes slideInRight { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes scaleIn { from{opacity:0;transform:scale(0.9)} to{opacity:1;transform:scale(1)} }
+@keyframes spin { to{transform:rotate(360deg)} }
+@keyframes shimmer { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+@keyframes ripple { to{transform:scale(4);opacity:0} }
+@keyframes gradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+@keyframes typing { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-8px)} }
+@keyframes borderGlow { 0%,100%{border-color:var(--primary)} 50%{border-color:var(--secondary)} }
+
+/* Particle Background */
+.particles {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+.particle {
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:var(--primary);
+  border-radius:50%;
+  opacity:0.15;
+  animation:particleFloat 20s infinite linear;
+}
+@keyframes particleFloat {
+  0%{transform:translateY(100vh) rotate(0deg);opacity:0}
+  10%{opacity:0.15}
+  90%{opacity:0.15}
+  100%{transform:translateY(-100vh) rotate(720deg);opacity:0}
+}
+
+/* Layout */
+.app-container { display:flex; height:100vh; height:100dvh; position:relative; z-index:1; }
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+  width:300px;
+  background:var(--sidebar-bg);
+  border-right:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  z-index:100;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.sidebar::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:200px;
+  background:var(--gradient1);
+  opacity:0.03;
+  pointer-events:none;
+}
+
+.sidebar-header {
+  padding:20px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.sidebar-brand {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:16px;
+}
+.brand-logo {
+  width:48px; height:48px;
+  background:var(--gradient1);
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px;
+  color:#fff;
+  box-shadow:0 8px 20px rgba(10,124,255,0.3);
+  animation:float 4s ease-in-out infinite;
+  position:relative;
+}
+.brand-logo::after {
+  content:'';
+  position:absolute;
+  inset:-3px;
+  border-radius:17px;
+  background:var(--gradient1);
+  opacity:0.3;
+  filter:blur(8px);
+  z-index:-1;
+}
+.brand-info h1 {
+  font-size:17px;
+  font-weight:800;
+  font-family:'Poppins',sans-serif;
+  background:var(--gradient1);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1.2;
+}
+.brand-info p {
+  font-size:11px;
+  color:var(--text3);
+  margin-top:2px;
+}
+.brand-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:3px 8px;
+  background:rgba(0,208,132,0.1);
+  color:var(--secondary);
+  font-size:10px;
+  font-weight:600;
+  border-radius:20px;
+  margin-top:4px;
+}
+.brand-badge i { font-size:8px; }
+
+.new-chat-btn {
+  width:100%;
+  padding:14px 18px;
+  background:var(--gradient1);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  transition: all 0.3s ease;
+  font-family:inherit;
+  position:relative;
+  overflow:hidden;
+}
+.new-chat-btn::before {
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+  transition:0.5s;
+}
+.new-chat-btn:hover::before { left:100%; }
+.new-chat-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(10,124,255,0.4); }
+.new-chat-btn:active { transform:translateY(0); }
+
+.sidebar-content { flex:1; overflow-y:auto; padding:16px; }
+
+.sidebar-section { margin-bottom:20px; }
+.sidebar-section-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:8px;
+  transition:background 0.2s;
+}
+.sidebar-section-header:hover { background:var(--bg3); }
+.sidebar-section-title {
+  font-size:11px;
+  font-weight:700;
+  color:var(--text3);
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.sidebar-section-title i { font-size:12px; color:var(--primary); }
+.sidebar-section-toggle {
+  font-size:10px;
+  color:var(--text3);
+  transition:transform 0.3s;
+}
+.sidebar-section.collapsed .sidebar-section-toggle { transform:rotate(-90deg); }
+.sidebar-section-body { padding-top:8px; }
+.sidebar-section.collapsed .sidebar-section-body { display:none; }
+
+.nav-item {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:13px;
+  color:var(--text2);
+  transition: all 0.2s ease;
+  position:relative;
+  margin-bottom:2px;
+}
+.nav-item::before {
+  content:'';
+  position:absolute;
+  left:0;top:50%;
+  transform:translateY(-50%);
+  width:3px;height:0;
+  background:var(--gradient1);
+  border-radius:0 3px 3px 0;
+  transition:height 0.2s;
+}
+.nav-item:hover { background:var(--bg3); color:var(--text); }
+.nav-item:hover::before { height:60%; }
+.nav-item.active { background:rgba(10,124,255,0.08); color:var(--primary); font-weight:600; }
+.nav-item.active::before { height:70%; }
+.nav-item i { width:20px; text-align:center; font-size:14px; }
+.nav-item-badge {
+  margin-left:auto;
+  padding:2px 8px;
+  background:var(--primary);
+  color:#fff;
+  font-size:10px;
+  font-weight:600;
+  border-radius:10px;
+}
+
+.chat-history-item {
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:13px;
+  color:var(--text2);
+  transition: all 0.2s;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:2px;
+}
+.chat-history-item:hover { background:var(--bg3); }
+.chat-history-item i { font-size:12px; color:var(--text3); }
+.chat-history-item span {
+  flex:1;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.chat-history-item .delete-chat {
+  opacity:0;
+  padding:4px;
+  border-radius:4px;
+  transition:all 0.2s;
+}
+.chat-history-item:hover .delete-chat { opacity:1; }
+.chat-history-item .delete-chat:hover { background:var(--error); color:#fff; }
+
+/* Company Card */
+.company-card {
+  background:var(--gradient1);
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+}
+.company-card::before {
+  content:'';
+  position:absolute;
+  top:-50%;right:-50%;
+  width:100%;height:100%;
+  background:radial-gradient(circle,rgba(255,255,255,0.1) 0%,transparent 70%);
+}
+.company-card-title {
+  font-size:12px;
+  font-weight:700;
+  color:rgba(255,255,255,0.9);
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.company-card-text {
+  font-size:11px;
+  color:rgba(255,255,255,0.75);
+  line-height:1.5;
+}
+.company-card-btn {
+  margin-top:12px;
+  padding:8px 14px;
+  background:rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:8px;
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:inherit;
+}
+.company-card-btn:hover { background:rgba(255,255,255,0.3); }
+
+.sidebar-footer {
+  padding:16px;
+  border-top:1px solid var(--border);
+}
+.sidebar-footer-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+.sidebar-footer-btn {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:12px 8px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text2);
+  font-size:10px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:inherit;
+}
+.sidebar-footer-btn i { font-size:16px; }
+.sidebar-footer-btn:hover { background:var(--bg); border-color:var(--primary); color:var(--primary); transform:translateY(-2px); }
+
+/* ==================== MAIN AREA ==================== */
+.main-area { flex:1; display:flex; flex-direction:column; min-width:0; position:relative; }
+
+/* Topbar */
+.topbar {
+  height:64px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  flex-shrink:0;
+  transition: all 0.4s ease;
+  position:relative;
+  z-index:50;
+}
+.topbar-left { display:flex; align-items:center; gap:16px; }
+.menu-toggle {
+  display:none;
+  width:40px;height:40px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:var(--text);
+  cursor:pointer;
+  font-size:18px;
+  transition:all 0.2s;
+}
+.menu-toggle:hover { background:var(--bg); border-color:var(--primary); }
+
+.topbar-info { display:flex; flex-direction:column; }
+.topbar-title {
+  font-size:16px;
+  font-weight:700;
+  font-family:'Poppins',sans-serif;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.topbar-title .status-dot {
+  width:8px;height:8px;
+  background:var(--secondary);
+  border-radius:50%;
+  animation:pulse 2s infinite;
+}
+.topbar-subtitle {
+  font-size:12px;
+  color:var(--text3);
+  margin-top:2px;
+}
+
+.topbar-center {
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.journey-badge {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:25px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--text2);
+}
+.journey-badge i { color:var(--accent); }
+
+.topbar-right { display:flex; align-items:center; gap:10px; }
+.topbar-btn {
+  width:40px; height:40px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  color:var(--text2);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+  transition: all 0.2s ease;
+  position:relative;
+}
+.topbar-btn:hover { background:var(--bg3); color:var(--primary); border-color:var(--primary); transform:translateY(-2px); }
+.topbar-btn.active { background:rgba(10,124,255,0.1); color:var(--primary); border-color:var(--primary); }
+.topbar-btn .badge {
+  position:absolute;
+  top:-4px;right:-4px;
+  width:18px;height:18px;
+  background:var(--error);
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  width:54px; height:30px;
+  border-radius:15px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  cursor:pointer;
+  position:relative;
+  transition: all 0.3s ease;
+}
+.theme-toggle-knob {
+  position:absolute;
+  top:3px; left:3px;
+  width:22px; height:22px;
+  border-radius:50%;
+  background:var(--gradient1);
+  transition: all 0.3s cubic-bezier(0.68,-0.55,0.265,1.55);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:#fff;
+  box-shadow:0 2px 8px rgba(10,124,255,0.3);
+}
+[data-theme="dark"] .theme-toggle-knob { left:27px; background:var(--gradient2); }
+
+/* Language Dropdown */
+.lang-dropdown-container { position:relative; }
+.lang-dropdown {
+  position:absolute;
+  top:50px; right:0;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:8px;
+  min-width:160px;
+  box-shadow:var(--shadow);
+  z-index:1000;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-10px);
+  transition:all 0.3s ease;
+}
+.lang-dropdown.show { opacity:1; visibility:visible; transform:translateY(0); }
+.lang-option {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:8px;
+  font-size:13px;
+  cursor:pointer;
+  color:var(--text);
+  border:none;
+  background:none;
+  width:100%;
+  font-family:inherit;
+  transition: all 0.2s;
+}
+.lang-option:hover { background:var(--bg3); }
+.lang-option.active { background:rgba(10,124,255,0.1); color:var(--primary); font-weight:600; }
+.lang-option .flag { font-size:18px; }
+
+/* ==================== CHAT AREA ==================== */
+.chat-container {
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+  position:relative;
+}
+.chat-inner {
+  max-width:900px;
+  margin:0 auto;
+  padding:24px 24px 120px;
+  min-height:100%;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:calc(100vh - 250px);
+  text-align:center;
+  padding:40px 20px;
+  animation:fadeIn 0.6s ease;
+}
+.welcome-avatar {
+  width:100px; height:100px;
+  background:var(--gradient1);
+  border-radius:28px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:48px;
+  margin-bottom:28px;
+  box-shadow:0 20px 50px rgba(10,124,255,0.3);
+  animation:float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+  position:relative;
+}
+.welcome-avatar::before {
+  content:'';
+  position:absolute;
+  inset:-8px;
+  border-radius:34px;
+  background:var(--gradient1);
+  opacity:0.2;
+  filter:blur(15px);
+  z-index:-1;
+  animation:pulse 3s infinite;
+}
+.welcome-screen h1 {
+  font-size:36px;
+  font-weight:800;
+  font-family:'Poppins',sans-serif;
+  margin-bottom:8px;
+  background:var(--gradient1);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:slideUp 0.6s ease 0.1s both;
+}
+.welcome-tagline {
+  font-size:14px;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:12px;
+  padding:8px 20px;
+  background:rgba(255,107,0,0.1);
+  border-radius:25px;
+  border:1px solid rgba(255,107,0,0.2);
+  animation:slideUp 0.6s ease 0.2s both;
+}
+.welcome-desc {
+  font-size:15px;
+  color:var(--text2);
+  max-width:600px;
+  line-height:1.7;
+  margin-bottom:16px;
+  animation:slideUp 0.6s ease 0.3s both;
+}
+.welcome-company {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 20px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:50px;
+  margin-bottom:32px;
+  animation:slideUp 0.6s ease 0.4s both;
+}
+.welcome-company img {
+  width:32px;height:32px;
+  border-radius:8px;
+  background:var(--gradient1);
+  display:flex;align-items:center;justify-content:center;
+}
+.welcome-company-info { text-align:left; }
+.welcome-company-info strong { font-size:13px; color:var(--text); }
+.welcome-company-info span { font-size:11px; color:var(--text3); display:block; }
+
+/* Feature Cards */
+.feature-cards {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+  width:100%;
+  max-width:800px;
+  margin-bottom:32px;
+  animation:slideUp 0.6s ease 0.5s both;
+}
+.feature-card {
+  padding:16px 12px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:14px;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.3s ease;
+}
+.feature-card:hover {
+  border-color:var(--primary);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow2);
+}
+.feature-card-icon {
+  width:40px;height:40px;
+  margin:0 auto 10px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.feature-card:nth-child(1) .feature-card-icon { background:rgba(10,124,255,0.1); color:var(--primary); }
+.feature-card:nth-child(2) .feature-card-icon { background:rgba(0,208,132,0.1); color:var(--secondary); }
+.feature-card:nth-child(3) .feature-card-icon { background:rgba(255,107,0,0.1); color:var(--accent); }
+.feature-card:nth-child(4) .feature-card-icon { background:rgba(139,92,246,0.1); color:var(--purple); }
+.feature-card:nth-child(5) .feature-card-icon { background:rgba(236,72,153,0.1); color:var(--pink); }
+.feature-card-title { font-size:11px; font-weight:600; color:var(--text); line-height:1.4; }
+
+/* Quick Questions */
+.quick-section {
+  width:100%;
+  max-width:800px;
+  animation:slideUp 0.6s ease 0.6s both;
+}
+.quick-section-title {
+  font-size:13px;
+  font-weight:600;
+  color:var(--text3);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.quick-section-title i { color:var(--primary); }
+.quick-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.quick-btn {
+  padding:16px 18px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:14px;
+  cursor:pointer;
+  text-align:left;
+  font-size:13px;
+  color:var(--text);
+  line-height:1.5;
+  transition: all 0.25s ease;
+  font-family:inherit;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:relative;
+  overflow:hidden;
+}
+.quick-btn::before {
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(10,124,255,0.05),transparent);
+  transition:0.5s;
+}
+.quick-btn:hover::before { left:100%; }
+.quick-btn:hover {
+  border-color:var(--primary);
+  background:rgba(10,124,255,0.02);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow2);
+}
+.quick-btn .qicon {
+  width:36px; height:36px;
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px;
+  flex-shrink:0;
+}
+.quick-btn:nth-child(1) .qicon { background:rgba(10,124,255,0.1); color:var(--primary); }
+.quick-btn:nth-child(2) .qicon { background:rgba(0,208,132,0.1); color:var(--secondary); }
+.quick-btn:nth-child(3) .qicon { background:rgba(255,107,0,0.1); color:var(--accent); }
+.quick-btn:nth-child(4) .qicon { background:rgba(139,92,246,0.1); color:var(--purple); }
+.quick-btn:nth-child(5) .qicon { background:rgba(236,72,153,0.1); color:var(--pink); }
+.quick-btn:nth-child(6) .qicon { background:rgba(16,185,129,0.1); color:var(--success); }
+.quick-btn span { font-weight:500; flex:1; }
+.quick-btn .arrow { color:var(--text3); font-size:12px; transition:transform 0.2s; }
+.quick-btn:hover .arrow { transform:translateX(4px); color:var(--primary); }
+
+/* ==================== MESSAGES ==================== */
+.message-group { margin-bottom:28px; animation:slideUp 0.4s ease-out; }
+.message-row { display:flex; gap:14px; align-items:flex-start; }
+.message-row.user { flex-direction:row-reverse; }
+
+.msg-avatar {
+  width:36px; height:36px;
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+  flex-shrink:0;
+  position:relative;
+}
+.msg-avatar.ai {
+  background:var(--gradient1);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(10,124,255,0.25);
+}
+.msg-avatar.user {
+  background:var(--gradient3);
+  color:#fff;
+  box-shadow:0 4px 12px rgba(255,107,0,0.25);
+}
+
+.msg-content { max-width:80%; min-width:0; }
+.msg-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+  padding:0 4px;
+}
+.msg-label { font-size:12px; font-weight:600; color:var(--text3); }
+.msg-time { font-size:10px; color:var(--text3); }
+.message-row.user .msg-header { justify-content:flex-end; }
+
+.msg-bubble {
+  padding:16px 20px;
+  border-radius:18px;
+  font-size:14px;
+  line-height:1.75;
+  word-wrap:break-word;
+  position:relative;
+}
+.message-row.user .msg-bubble {
+  background:var(--chat-user);
+  color:#fff;
+  border-bottom-right-radius:6px;
+  box-shadow:0 4px 15px rgba(10,124,255,0.2);
+}
+.message-row.ai .msg-bubble {
+  background:var(--chat-ai);
+  border:1px solid var(--border);
+  border-bottom-left-radius:6px;
+  color:var(--text);
+  box-shadow:var(--shadow2);
+}
+
+.msg-bubble strong { font-weight:700; }
+.msg-bubble .legal-header {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.msg-bubble .legal-tag {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+}
+.msg-bubble .legal-tag.area { background:rgba(10,124,255,0.1); color:var(--primary); }
+.msg-bubble .legal-tag.section { background:rgba(0,208,132,0.1); color:var(--secondary); }
+.msg-bubble .legal-tag.act { background:rgba(139,92,246,0.1); color:var(--purple); }
+
+.msg-bubble .section-block {
+  margin:12px 0;
+  padding:12px 14px;
+  background:var(--bg4);
+  border-radius:10px;
+  border-left:3px solid var(--primary);
+}
+.msg-bubble .section-title {
+  font-size:12px;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.msg-bubble ul { margin:8px 0; padding-left:18px; }
+.msg-bubble li { margin:4px 0; }
+.msg-bubble .example-block {
+  margin:12px 0;
+  padding:12px 14px;
+  background:rgba(255,107,0,0.05);
+  border-radius:10px;
+  border-left:3px solid var(--accent);
+}
+.msg-bubble .example-title {
+  font-size:12px;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* Message Actions */
+.msg-footer { margin-top:12px; display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.msg-actions {
+  display:flex;
+  gap:4px;
+  opacity:0;
+  transition: opacity 0.2s;
+}
+.message-group:hover .msg-actions { opacity:1; }
+.msg-action-btn {
+  padding:6px 12px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--bg2);
+  color:var(--text3);
+  font-size:11px;
+  cursor:pointer;
+  display:flex; align-items:center; gap:5px;
+  transition: all 0.2s;
+  font-family:inherit;
+}
+.msg-action-btn:hover { color:var(--text); border-color:var(--text3); background:var(--bg3); }
+.msg-action-btn.liked { color:var(--primary); border-color:var(--primary); }
+.msg-action-btn.disliked { color:var(--error); border-color:var(--error); }
+
+/* Confidence Badge */
+.confidence-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+}
+.confidence-badge.high { background:rgba(16,185,129,0.1); color:var(--success); }
+.confidence-badge.medium { background:rgba(245,158,11,0.1); color:var(--warning); }
+
+/* Category Badge */
+.category-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+  background:rgba(139,92,246,0.1);
+  color:var(--purple);
+}
+
+/* Reference Panel */
+.ref-panel {
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--bg4);
+}
+.ref-toggle {
+  width:100%;
+  padding:12px 16px;
+  background:none;
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:12px;
+  font-weight:600;
+  color:var(--primary);
+  cursor:pointer;
+  font-family:inherit;
+  transition:background 0.2s;
+}
+.ref-toggle:hover { background:var(--bg3); }
+.ref-toggle i { transition:transform 0.3s; }
+.ref-toggle.open i { transform:rotate(180deg); }
+.ref-body {
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+}
+.ref-body.open { max-height:600px; }
+.ref-body-inner {
+  padding:0 16px 14px;
+  font-size:12px;
+  color:var(--text2);
+  line-height:1.8;
+}
+.ref-item {
+  padding:10px 12px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  margin-bottom:8px;
+}
+.ref-item-title { font-weight:600; color:var(--text); margin-bottom:4px; display:flex; align-items:center; gap:6px; }
+.ref-item-title i { color:var(--primary); font-size:11px; }
+.ref-item a { color:var(--primary); text-decoration:none; font-size:11px; display:inline-flex; align-items:center; gap:4px; }
+.ref-item a:hover { text-decoration:underline; }
+.ref-footer {
+  padding-top:10px;
+  margin-top:10px;
+  border-top:1px solid var(--border);
+  font-size:11px;
+  color:var(--text3);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.ref-footer i { color:var(--secondary); }
+
+/* Follow-up Questions */
+.followup-section {
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+}
+.followup-title {
+  font-size:11px;
+  font-weight:600;
+  color:var(--text3);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.followup-btns { display:flex; flex-wrap:wrap; gap:6px; }
+.followup-btn {
+  padding:8px 14px;
+  background:var(--bg4);
+  border:1px solid var(--border);
+  border-radius:20px;
+  font-size:12px;
+  color:var(--text2);
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:inherit;
+}
+.followup-btn:hover { border-color:var(--primary); color:var(--primary); background:rgba(10,124,255,0.05); }
+
+/* Typing Indicator */
+.typing-indicator {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:10px 0;
+  animation:fadeIn 0.3s ease;
+}
+.typing-bubble {
+  padding:16px 20px;
+  background:var(--chat-ai);
+  border:1px solid var(--border);
+  border-radius:18px;
+  border-bottom-left-radius:6px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.typing-dots { display:flex; gap:5px; }
+.typing-dots span {
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--primary);
+  animation:typing 1.4s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay:0.15s; }
+.typing-dots span:nth-child(3) { animation-delay:0.3s; }
+.typing-text { font-size:12px; color:var(--text3); }
+
+/* ==================== INPUT AREA ==================== */
+.input-area {
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:16px 24px 20px;
+  background:linear-gradient(to top, var(--bg) 80%, transparent);
+  z-index:10;
+}
+.input-wrapper {
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Category Pills */
+.category-pills {
+  display:flex;
+  gap:6px;
+  margin-bottom:10px;
+  overflow-x:auto;
+  padding-bottom:4px;
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+.category-pills::-webkit-scrollbar { display:none; }
+.cat-pill {
+  padding:7px 16px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  color:var(--text2);
+  font-size:12px;
+  font-weight:500;
+  cursor:pointer;
+  white-space:nowrap;
+  transition: all 0.2s ease;
+  font-family:inherit;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.cat-pill i { font-size:11px; }
+.cat-pill:hover { border-color:var(--primary); color:var(--primary); }
+.cat-pill.active {
+  background:var(--gradient1);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 4px 12px rgba(10,124,255,0.25);
+}
+
+/* Input Box */
+.input-box {
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  background:var(--input-bg);
+  border:2px solid var(--border);
+  border-radius:20px;
+  padding:10px 12px 10px 20px;
+  transition: all 0.3s ease;
+  box-shadow:var(--shadow2);
+}
+.input-box:focus-within {
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(10,124,255,0.1), var(--shadow2);
+}
+.input-box textarea {
+  flex:1;
+  border:none;
+  background:none;
+  font-size:14px;
+  color:var(--text);
+  resize:none;
+  outline:none;
+  font-family:inherit;
+  line-height:1.5;
+  max-height:140px;
+  min-height:24px;
+  padding:6px 0;
+}
+.input-box textarea::placeholder { color:var(--text3); }
+.input-btn-group { display:flex; gap:6px; align-items:center; }
+.input-btn {
+  width:40px; height:40px;
+  border-radius:12px;
+  border:none;
+  background:var(--bg3);
+  color:var(--text2);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+  transition: all 0.2s ease;
+  flex-shrink:0;
+}
+.input-btn:hover { background:var(--bg); color:var(--primary); transform:scale(1.05); }
+.input-btn.send-btn {
+  background:var(--gradient1);
+  color:#fff;
+  box-shadow:0 4px 15px rgba(10,124,255,0.3);
+}
+.input-btn.send-btn:hover { box-shadow:0 6px 20px rgba(10,124,255,0.4); transform:scale(1.08); }
+.input-btn.send-btn:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
+.input-btn.recording {
+  background:var(--error);
+  color:#fff;
+  animation:pulse 1s infinite;
+}
+.input-btn.stop-speak { color:var(--error); }
+
+.input-footer {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding:0 4px;
+}
+.input-disclaimer {
+  font-size:11px;
+  color:var(--text3);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.input-disclaimer i { color:var(--warning); }
+.input-shortcuts {
+  display:flex;
+  gap:12px;
+  font-size:11px;
+  color:var(--text3);
+}
+.input-shortcuts span {
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.input-shortcuts kbd {
+  padding:2px 6px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:4px;
+  font-family:inherit;
+  font-size:10px;
+}
+
+/* ==================== MODALS & PANELS ==================== */
+
+/* Overlay */
+.overlay {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(4px);
+  z-index:150;
+  opacity:0;
+  visibility:hidden;
+  transition: all 0.3s ease;
+}
+.overlay.show { opacity:1; visibility:visible; }
+
+/* Reference Sidebar */
+.ref-sidebar {
+  position:fixed;
+  top:0; right:-450px;
+  width:420px;
+  height:100vh;
+  background:var(--bg2);
+  border-left:1px solid var(--border);
+  z-index:200;
+  transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+  display:flex;
+  flex-direction:column;
+  box-shadow:-10px 0 40px rgba(0,0,0,0.1);
+}
+.ref-sidebar.open { right:0; }
+.ref-sidebar-header {
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--bg4);
+}
+.ref-sidebar-header h3 {
+  font-size:18px;
+  font-weight:700;
+  font-family:'Poppins',sans-serif;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.ref-sidebar-header h3 i { color:var(--primary); }
+.ref-sidebar-close {
+  width:36px;height:36px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--bg2);
+  color:var(--text);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  transition:all 0.2s;
+}
+.ref-sidebar-close:hover { background:var(--error); color:#fff; border-color:var(--error); }
+.ref-sidebar-body { flex:1; overflow-y:auto; padding:20px 24px; }
+
+.law-card {
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  margin-bottom:16px;
+  background:var(--bg4);
+  transition:all 0.3s ease;
+}
+.law-card:hover { border-color:var(--primary); transform:translateY(-2px); box-shadow:var(--shadow2); }
+.law-card-header { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.law-card-icon {
+  width:48px;height:48px;
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+}
+.law-card:nth-child(1) .law-card-icon { background:rgba(10,124,255,0.1); color:var(--primary); }
+.law-card:nth-child(2) .law-card-icon { background:rgba(0,208,132,0.1); color:var(--secondary); }
+.law-card:nth-child(3) .law-card-icon { background:rgba(255,107,0,0.1); color:var(--accent); }
+.law-card:nth-child(4) .law-card-icon { background:rgba(139,92,246,0.1); color:var(--purple); }
+.law-card:nth-child(5) .law-card-icon { background:rgba(236,72,153,0.1); color:var(--pink); }
+.law-card-info h4 { font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px; }
+.law-card-info p { font-size:12px; color:var(--text3); }
+.law-card-desc { font-size:13px; color:var(--text2); line-height:1.6; margin-bottom:12px; }
+.law-card-link {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--primary);
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  transition:gap 0.2s;
+}
+.law-card-link:hover { gap:10px; }
+
+/* Company Modal */
+.modal {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:300;
+  opacity:0;
+  visibility:hidden;
+  transition:all 0.3s ease;
+  padding:20px;
+}
+.modal.show { opacity:1; visibility:visible; }
+.modal-backdrop {
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(8px);
+}
+.modal-content {
+  position:relative;
+  width:100%;
+  max-width:700px;
+  max-height:90vh;
+  background:var(--bg2);
+  border-radius:24px;
+  overflow:hidden;
+  transform:scale(0.9);
+  transition:transform 0.3s ease;
+  box-shadow:var(--shadow3);
+}
+.modal.show .modal-content { transform:scale(1); }
+.modal-header {
+  padding:24px 28px;
+  background:var(--gradient1);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.modal-header::before {
+  content:'';
+  position:absolute;
+  top:-50%;right:-30%;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);
+}
+.modal-header h2 {
+  font-size:24px;
+  font-weight:800;
+  font-family:'Poppins',sans-serif;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.modal-header p { font-size:14px; opacity:0.9; }
+.modal-close {
+  position:absolute;
+  top:20px;right:20px;
+  width:36px;height:36px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  border:none;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.modal-close:hover { background:rgba(255,255,255,0.3); transform:rotate(90deg); }
+.modal-body {
+  padding:28px;
+  max-height:60vh;
+  overflow-y:auto;
+}
+.company-section { margin-bottom:24px; }
+.company-section:last-child { margin-bottom:0; }
+.company-section h3 {
+  font-size:16px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.company-section h3 i { color:var(--primary); }
+.company-section p { font-size:14px; color:var(--text2); line-height:1.7; }
+.company-stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.stat-card {
+  padding:16px;
+  background:var(--bg4);
+  border:1px solid var(--border);
+  border-radius:12px;
+  text-align:center;
+}
+.stat-card .stat-value {
+  font-size:24px;
+  font-weight:800;
+  color:var(--primary);
+  font-family:'Poppins',sans-serif;
+}
+.stat-card .stat-label {
+  font-size:11px;
+  color:var(--text3);
+  margin-top:4px;
+}
+.journey-timeline {
+  position:relative;
+  padding-left:24px;
+  border-left:2px solid var(--border);
+}
+.timeline-item {
+  position:relative;
+  padding-bottom:20px;
+  padding-left:20px;
+}
+.timeline-item:last-child { padding-bottom:0; }
+.timeline-item::before {
+  content:'';
+  position:absolute;
+  left:-8px;top:4px;
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--gradient1);
+  border:3px solid var(--bg2);
+}
+.timeline-item .timeline-date {
+  font-size:11px;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:4px;
+}
+.timeline-item .timeline-title {
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:2px;
+}
+.timeline-item .timeline-desc {
+  font-size:12px;
+  color:var(--text3);
+}
+
+/* Settings Panel */
+.settings-panel {
+  position:fixed;
+  top:0;right:-400px;
+  width:380px;
+  height:100vh;
+  background:var(--bg2);
+  border-left:1px solid var(--border);
+  z-index:200;
+  transition:right 0.4s cubic-bezier(0.4,0,0.2,1);
+  display:flex;
+  flex-direction:column;
+}
+.settings-panel.open { right:0; }
+.settings-header {
+  padding:20px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.settings-header h3 {
+  font-size:18px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.settings-header h3 i { color:var(--primary); }
+.settings-body { flex:1; overflow-y:auto; padding:20px 24px; }
+.settings-section { margin-bottom:24px; }
+.settings-section-title {
+  font-size:11px;
+  font-weight:700;
+  color:var(--text3);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:12px;
+}
+.setting-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.setting-item:last-child { border-bottom:none; }
+.setting-info { display:flex; align-items:center; gap:12px; }
+.setting-info i { width:20px; color:var(--primary); }
+.setting-info span { font-size:14px; color:var(--text); }
+.setting-control { }
+
+/* Toggle Switch */
+.toggle-switch {
+  width:48px;height:26px;
+  border-radius:13px;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  cursor:pointer;
+  position:relative;
+  transition:all 0.3s;
+}
+.toggle-switch.active { background:var(--primary); border-color:var(--primary); }
+.toggle-switch-knob {
+  position:absolute;
+  top:2px;left:2px;
+  width:20px;height:20px;
+  border-radius:50%;
+  background:#fff;
+  transition:all 0.3s;
+  box-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+.toggle-switch.active .toggle-switch-knob { left:24px; }
+
+/* Font Size Slider */
+.font-slider {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.font-slider input[type="range"] {
+  width:100px;
+  height:4px;
+  border-radius:2px;
+  background:var(--bg3);
+  outline:none;
+  -webkit-appearance:none;
+}
+.font-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:var(--primary);
+  cursor:pointer;
+}
+.font-slider span { font-size:12px; color:var(--text3); }
+
+/* Toast */
+.toast-container {
+  position:fixed;
+  bottom:100px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.toast {
+  padding:12px 24px;
+  background:var(--text);
+  color:var(--bg);
+  border-radius:12px;
+  font-size:14px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:var(--shadow3);
+  animation:slideUp 0.3s ease;
+}
+.toast.success { background:var(--success); color:#fff; }
+.toast.error { background:var(--error); color:#fff; }
+.toast.warning { background:var(--warning); color:#fff; }
+.toast i { font-size:16px; }
+
+/* ==================== RESPONSIVE ==================== */
+@media(max-width:1024px) {
+  .topbar-center { display:none; }
+  .feature-cards { grid-template-columns:repeat(3,1fr); }
+}
+@media(max-width:768px) {
+  .sidebar {
+    position:fixed;
+    left:0;top:0;
+    height:100vh;
+    transform:translateX(-100%);
+    width:85%;
+    max-width:320px;
+  }
+  .sidebar.open { transform:translateX(0); }
+  .menu-toggle { display:flex; }
+  .quick-grid { grid-template-columns:1fr; }
+  .feature-cards { grid-template-columns:repeat(3,1fr); }
+  .feature-card-title { font-size:10px; }
+  .ref-sidebar { width:100%; right:-100%; }
+  .settings-panel { width:100%; right:-100%; }
+  .msg-content { max-width:88%; }
+  .topbar { padding:0 16px; }
+  .chat-inner { padding:20px 16px 140px; }
+  .input-area { padding:12px 16px 16px; }
+  .modal-content { max-width:95%; border-radius:20px; }
+  .company-stats { grid-template-columns:repeat(2,1fr); }
+  .input-shortcuts { display:none; }
+  .welcome-screen h1 { font-size:28px; }
+  .welcome-avatar { width:80px;height:80px;font-size:36px; }
+}
+@media(max-width:480px) {
+  .feature-cards { grid-template-columns:repeat(2,1fr); gap:8px; }
+  .feature-card { padding:12px 8px; }
+  .feature-card-icon { width:32px;height:32px;font-size:14px; }
+  .welcome-screen h1 { font-size:24px; }
+  .welcome-tagline { font-size:12px; padding:6px 14px; }
+  .topbar { height:56px; }
+  .topbar-subtitle { display:none; }
+  .msg-bubble { padding:14px 16px; font-size:13px; }
+  .quick-btn { padding:14px; }
+  .quick-btn .qicon { width:32px;height:32px; }
+  .modal-header { padding:20px; }
+  .modal-header h2 { font-size:20px; }
+  .modal-body { padding:20px; }
+}
+
+/* Print styles */
+@media print {
+  .sidebar, .topbar, .input-area, .overlay, .ref-sidebar, .settings-panel, .modal { display:none !important; }
+  .main-area { display:block; }
+  .chat-container { overflow:visible; }
+  .chat-inner { padding:0; max-width:100%; }
+  .message-group { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<!-- Particles Background -->
+<div class="particles" id="particles"></div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="app-container">
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-brand">
+        <div class="brand-logo">⚖</div>
+        <div class="brand-info">
+          <h1>Re-Volt Legal AI</h1>
+          <p>Official Legal Assistant</p>
+          <div class="brand-badge"><i class="fas fa-check-circle"></i> Verified</div>
+        </div>
+      </div>
+      <button class="new-chat-btn" onclick="newChat()">
+        <i class="fas fa-plus"></i> New Chat
+      </button>
+    </div>
+
+    <div class="sidebar-content">
+      <!-- Company Card -->
+      <div class="company-card">
+        <div class="company-card-title"><i class="fas fa-building"></i> Re-Volt Beverage Ltd.</div>
+        <div class="company-card-text">Premium Electrolyte Drink Company in Bangladesh. From Startup to Success.</div>
+        <button class="company-card-btn" onclick="openCompanyModal()"><i class="fas fa-info-circle"></i> Learn More</button>
+      </div>
+
+      <!-- Law Categories -->
+      <div class="sidebar-section" id="lawSection">
+        <div class="sidebar-section-header" onclick="toggleSection('lawSection')">
+          <div class="sidebar-section-title"><i class="fas fa-scale-balanced"></i> Law Categories</div>
+          <i class="fas fa-chevron-down sidebar-section-toggle"></i>
+        </div>
+        <div class="sidebar-section-body">
+          <div class="nav-item active" onclick="selectCategory(this,'all')">
+            <i class="fas fa-layer-group"></i> All Legal Topics
+            <span class="nav-item-badge">5</span>
+          </div>
+          <div class="nav-item" onclick="selectCategory(this,'contract')">
+            <i class="fas fa-file-contract"></i> Contract Act 1872
+          </div>
+          <div class="nav-item" onclick="selectCategory(this,'sale')">
+            <i class="fas fa-cart-shopping"></i> Sale of Goods 1930
+          </div>
+          <div class="nav-item" onclick="selectCategory(this,'negotiable')">
+            <i class="fas fa-money-check-dollar"></i> Negotiable Instruments
+          </div>
+          <div class="nav-item" onclick="selectCategory(this,'company')">
+            <i class="fas fa-building-columns"></i> Companies Act 1994
+          </div>
+          <div class="nav-item" onclick="selectCategory(this,'partnership')">
+            <i class="fas fa-handshake"></i> Partnership Act 1932
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat History -->
+      <div class="sidebar-section" id="historySection">
+        <div class="sidebar-section-header" onclick="toggleSection('historySection')">
+          <div class="sidebar-section-title"><i class="fas fa-clock-rotate-left"></i> Chat History</div>
+          <i class="fas fa-chevron-down sidebar-section-toggle"></i>
+        </div>
+        <div class="sidebar-section-body" id="chatHistoryList">
+          <div style="padding:16px;text-align:center;color:var(--text3);font-size:12px;">
+            <i class="fas fa-comments" style="font-size:24px;margin-bottom:8px;display:block;opacity:0.5;"></i>
+            No chat history yet
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="sidebar-section" id="actionsSection">
+        <div class="sidebar-section-header" onclick="toggleSection('actionsSection')">
+          <div class="sidebar-section-title"><i class="fas fa-bolt"></i> Quick Actions</div>
+          <i class="fas fa-chevron-down sidebar-section-toggle"></i>
+        </div>
+        <div class="sidebar-section-body">
+          <div class="nav-item" onclick="openRefSidebar()">
+            <i class="fas fa-book"></i> Law References
+          </div>
+          <div class="nav-item" onclick="openSettings()">
+            <i class="fas fa-gear"></i> Settings
+          </div>
+          <div class="nav-item" onclick="printChat()">
+            <i class="fas fa-print"></i> Print Chat
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-footer-grid">
+        <button class="sidebar-footer-btn" onclick="exportPDF()">
+          <i class="fas fa-file-pdf"></i>
+          Export PDF
+        </button>
+        <button class="sidebar-footer-btn" onclick="exportTXT()">
+          <i class="fas fa-file-lines"></i>
+          Export TXT
+        </button>
+        <button class="sidebar-footer-btn" onclick="clearChat()">
+          <i class="fas fa-trash-can"></i>
+          Clear Chat
+        </button>
+        <button class="sidebar-footer-btn" onclick="shareChat()">
+          <i class="fas fa-share-nodes"></i>
+          Share
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Area -->
+  <main class="main-area">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="topbar-info">
+          <div class="topbar-title">
+            <span class="status-dot"></span>
+            Re-Volt Legal AI
+          </div>
+          <div class="topbar-subtitle">Official Legal Assistant of Re-Volt Beverage Ltd.</div>
+        </div>
+      </div>
+
+      <div class="topbar-center">
+        <div class="journey-badge">
+          <i class="fas fa-road"></i>
+          From Startup to Success
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <!-- Language -->
+        <div class="lang-dropdown-container">
+          <button class="topbar-btn" onclick="toggleLangDropdown()" title="Language">
+            <i class="fas fa-globe"></i>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button class="lang-option active" data-lang="en" onclick="setLanguage('en')">
+              <span class="flag">🇺🇸</span> English
+            </button>
+            <button class="lang-option" data-lang="bn" onclick="setLanguage('bn')">
+              <span class="flag">🇧🇩</span> বাংলা
+            </button>
+            <button class="lang-option" data-lang="hi" onclick="setLanguage('hi')">
+              <span class="flag">🇮🇳</span> हिन्दी
+            </button>
+            <button class="lang-option" data-lang="ar" onclick="setLanguage('ar')">
+              <span class="flag">🇸🇦</span> العربية
+            </button>
+          </div>
+        </div>
+
+        <!-- References -->
+        <button class="topbar-btn" onclick="openRefSidebar()" title="Law References">
+          <i class="fas fa-book-open"></i>
+        </button>
+
+        <!-- Settings -->
+        <button class="topbar-btn" onclick="openSettings()" title="Settings">
+          <i class="fas fa-gear"></i>
+        </button>
+
+        <!-- Theme Toggle -->
+        <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">
+          <div class="theme-toggle-knob" id="themeKnob">
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-inner" id="chatInner">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-avatar">⚖</div>
+          <h1>Re-Volt Legal AI</h1>
+          <div class="welcome-tagline">
+            <i class="fas fa-rocket"></i> From Startup to Success: Legal Journey of a Business in Bangladesh
+          </div>
+          <p class="welcome-desc">
+            Your official AI-powered legal assistant for understanding business law in Bangladesh. 
+            Get precise, professional guidance on contracts, company formation, partnerships, sales, and financial instruments.
+          </p>
+          <div class="welcome-company">
+            <div style="width:32px;height:32px;background:var(--gradient1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;">⚡</div>
+            <div class="welcome-company-info">
+              <strong>Re-Volt Beverage Ltd.</strong>
+              <span>Premium Electrolyte Drink Company in Bangladesh</span>
+            </div>
+          </div>
+
+          <!-- Feature Cards -->
+          <div class="feature-cards">
+            <div class="feature-card" onclick="selectCategory(document.querySelector('.nav-item[onclick*=\"contract\"]'),'contract')">
+              <div class="feature-card-icon"><i class="fas fa-file-contract"></i></div>
+              <div class="feature-card-title">Contract Act 1872</div>
+            </div>
+            <div class="feature-card" onclick="selectCategory(document.querySelector('.nav-item[onclick*=\"sale\"]'),'sale')">
+              <div class="feature-card-icon"><i class="fas fa-cart-shopping"></i></div>
+              <div class="feature-card-title">Sale of Goods 1930</div>
+            </div>
+            <div class="feature-card" onclick="selectCategory(document.querySelector('.nav-item[onclick*=\"negotiable\"]'),'negotiable')">
+              <div class="feature-card-icon"><i class="fas fa-money-check-dollar"></i></div>
+              <div class="feature-card-title">Negotiable Instruments</div>
+            </div>
+            <div class="feature-card" onclick="selectCategory(document.querySelector('.nav-item[onclick*=\"company\"]'),'company')">
+              <div class="feature-card-icon"><i class="fas fa-building-columns"></i></div>
+              <div class="feature-card-title">Companies Act 1994</div>
+            </div>
+            <div class="feature-card" onclick="selectCategory(document.querySelector('.nav-item[onclick*=\"partnership\"]'),'partnership')">
+              <div class="feature-card-icon"><i class="fas fa-handshake"></i></div>
+              <div class="feature-card-title">Partnership Act 1932</div>
+            </div>
+          </div>
+
+          <!-- Quick Questions -->
+          <div class="quick-section">
+            <div class="quick-section-title">
+              <i class="fas fa-lightbulb"></i> Popular Questions
+            </div>
+            <div class="quick-grid">
+              <button class="quick-btn" onclick="askQuick('What is a valid contract under Bangladesh law?')">
+                <div class="qicon"><i class="fas fa-file-signature"></i></div>
+                <span>What is a valid contract?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+              <button class="quick-btn" onclick="askQuick('How to register a company in Bangladesh?')">
+                <div class="qicon"><i class="fas fa-building"></i></div>
+                <span>How to register a company?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+              <button class="quick-btn" onclick="askQuick('Difference between partnership and company?')">
+                <div class="qicon"><i class="fas fa-code-compare"></i></div>
+                <span>Partnership vs Company?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+              <button class="quick-btn" onclick="askQuick('What happens if a cheque bounces in Bangladesh?')">
+                <div class="qicon"><i class="fas fa-money-check"></i></div>
+                <span>Cheque bounce consequences?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+              <button class="quick-btn" onclick="askQuick('What are the rights of an unpaid seller?')">
+                <div class="qicon"><i class="fas fa-gavel"></i></div>
+                <span>Unpaid seller rights?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+              <button class="quick-btn" onclick="askQuick('How to dissolve a partnership in Bangladesh?')">
+                <div class="qicon"><i class="fas fa-handshake-slash"></i></div>
+                <span>How to dissolve partnership?</span>
+                <i class="fas fa-arrow-right arrow"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div id="messagesArea"></div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-wrapper">
+        <!-- Category Pills -->
+        <div class="category-pills">
+          <button class="cat-pill active" onclick="selectCatPill(this,'all')">
+            <i class="fas fa-layer-group"></i> All
+          </button>
+          <button class="cat-pill" onclick="selectCatPill(this,'contract')">
+            <i class="fas fa-file-contract"></i> Contract
+          </button>
+          <button class="cat-pill" onclick="selectCatPill(this,'sale')">
+            <i class="fas fa-cart-shopping"></i> Sale of Goods
+          </button>
+          <button class="cat-pill" onclick="selectCatPill(this,'negotiable')">
+            <i class="fas fa-money-check"></i> Negotiable
+          </button>
+          <button class="cat-pill" onclick="selectCatPill(this,'company')">
+            <i class="fas fa-building"></i> Companies
+          </button>
+          <button class="cat-pill" onclick="selectCatPill(this,'partnership')">
+            <i class="fas fa-handshake"></i> Partnership
+          </button>
+        </div>
+
+        <!-- Input Box -->
+        <div class="input-box">
+          <textarea id="userInput" rows="1" placeholder="Ask a legal question about Bangladesh business law..." onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+          <div class="input-btn-group">
+            <button class="input-btn" id="voiceBtn" onclick="toggleVoiceInput()" title="Voice Input (V)">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button class="input-btn" id="stopSpeakBtn" onclick="stopSpeaking()" title="Stop Speaking" style="display:none">
+              <i class="fas fa-volume-xmark"></i>
+            </button>
+            <button class="input-btn send-btn" id="sendBtn" onclick="sendMessage()" title="Send (Enter)">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Footer -->
+        <div class="input-footer">
+          <div class="input-disclaimer">
+            <i class="fas fa-shield-halved"></i>
+            Educational legal information only. Not professional legal advice.
+          </div>
+          <div class="input-shortcuts">
+            <span><kbd>Enter</kbd> Send</span>
+            <span><kbd>Shift+Enter</kbd> New line</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Reference Sidebar -->
+<div class="ref-sidebar" id="refSidebar">
+  <div class="ref-sidebar-header">
+    <h3><i class="fas fa-book-open"></i> Law References</h3>
+    <button class="ref-sidebar-close" onclick="closeRefSidebar()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="ref-sidebar-body">
+    <div class="law-card">
+      <div class="law-card-header">
+        <div class="law-card-icon"><i class="fas fa-file-contract"></i></div>
+        <div class="law-card-info">
+          <h4>Contract Act, 1872</h4>
+          <p>Foundation of all business agreements</p>
+        </div>
+      </div>
+      <div class="law-card-desc">Governs offer, acceptance, consideration, void agreements, breach of contract, damages, agency, indemnity, and guarantee.</div>
+      <a href="http://bdlaws.minlaw.gov.bd/act-details-26.html" target="_blank" class="law-card-link">View Full Act <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="law-card">
+      <div class="law-card-header">
+        <div class="law-card-icon"><i class="fas fa-cart-shopping"></i></div>
+        <div class="law-card-info">
+          <h4>Sale of Goods Act, 1930</h4>
+          <p>Rules for buying and selling</p>
+        </div>
+      </div>
+      <div class="law-card-desc">Covers sale agreements, conditions & warranties, transfer of ownership, unpaid seller rights, delivery rules, and risk transfer.</div>
+      <a href="http://bdlaws.minlaw.gov.bd/act-details-185.html" target="_blank" class="law-card-link">View Full Act <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="law-card">
+      <div class="law-card-header">
+        <div class="law-card-icon"><i class="fas fa-money-check-dollar"></i></div>
+        <div class="law-card-info">
+          <h4>Negotiable Instruments Act, 1881</h4>
+          <p>Cheques, bills & promissory notes</p>
+        </div>
+      </div>
+      <div class="law-card-desc">Deals with cheques, bills of exchange, promissory notes, dishonour, endorsement, and holder in due course provisions.</div>
+      <a href="http://bdlaws.minlaw.gov.bd/act-details-21.html" target="_blank" class="law-card-link">View Full Act <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="law-card">
+      <div class="law-card-header">
+        <div class="law-card-icon"><i class="fas fa-building-columns"></i></div>
+        <div class="law-card-info">
+          <h4>Companies Act, 1994</h4>
+          <p>Corporate law of Bangladesh</p>
+        </div>
+      </div>
+      <div class="law-card-desc">Governs company formation, memorandum & articles, directors' duties, shareholders' rights, AGM, ROC filing, and corporate governance.</div>
+      <a href="http://bdlaws.minlaw.gov.bd/act-details-788.html" target="_blank" class="law-card-link">View Full Act <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="law-card">
+      <div class="law-card-header">
+        <div class="law-card-icon"><i class="fas fa-handshake"></i></div>
+        <div class="law-card-info">
+          <h4>Partnership Act, 1932</h4>
+          <p>Partnership business rules</p>
+        </div>
+      </div>
+      <div class="law-card-desc">Covers partnership formation, rights & duties of partners, profit sharing, dissolution, and liability provisions.</div>
+      <a href="http://bdlaws.minlaw.gov.bd/act-details-163.html" target="_blank" class="law-card-link">View Full Act <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Panel -->
+<div class="settings-panel" id="settingsPanel">
+  <div class="settings-header">
+    <h3><i class="fas fa-gear"></i> Settings</h3>
+    <button class="ref-sidebar-close" onclick="closeSettings()"><i class="fas fa-xmark"></i></button>
+  </div>
+  <div class="settings-body">
+    <div class="settings-section">
+      <div class="settings-section-title">Appearance</div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </div>
+        <div class="toggle-switch" id="darkModeToggle" onclick="toggleTheme()">
+          <div class="toggle-switch-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-text-height"></i>
+          <span>Font Size</span>
+        </div>
+        <div class="font-slider">
+          <span>A</span>
+          <input type="range" min="12" max="18" value="14" onchange="changeFontSize(this.value)">
+          <span style="font-size:16px">A</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-section-title">Voice & Audio</div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-volume-high"></i>
+          <span>Voice Output</span>
+        </div>
+        <div class="toggle-switch active" id="voiceOutputToggle" onclick="toggleVoiceOutput(this)">
+          <div class="toggle-switch-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-microphone"></i>
+          <span>Voice Input</span>
+        </div>
+        <div class="toggle-switch active" id="voiceInputToggle" onclick="toggleVoiceInputSetting(this)">
+          <div class="toggle-switch-knob"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-section-title">Chat</div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-clock-rotate-left"></i>
+          <span>Save Chat History</span>
+        </div>
+        <div class="toggle-switch active" id="saveHistoryToggle" onclick="toggleSaveHistory(this)">
+          <div class="toggle-switch-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <i class="fas fa-language"></i>
+          <span>Show Follow-up Questions</span>
+        </div>
+        <div class="toggle-switch active" id="followupToggle" onclick="toggleFollowup(this)">
+          <div class="toggle-switch-knob"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Company Modal -->
+<div class="modal" id="companyModal">
+  <div class="modal-backdrop" onclick="closeCompanyModal()"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2><i class="fas fa-bolt"></i> Re-Volt Beverage Ltd.</h2>
+      <p>Premium Electrolyte Drink Company in Bangladesh</p>
+      <button class="modal-close" onclick="closeCompanyModal()"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="company-section">
+        <h3><i class="fas fa-info-circle"></i> About Re-Volt</h3>
+        <p>Re-Volt Beverage Ltd. is a pioneering premium electrolyte drink company headquartered in Dhaka, Bangladesh. Founded with a vision to revolutionize the beverage industry, Re-Volt produces high-quality electrolyte drinks designed for active individuals, athletes, and health-conscious consumers across Bangladesh and beyond.</p>
+      </div>
+
+      <div class="company-stats">
+        <div class="stat-card">
+          <div class="stat-value">2020</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">500+</div>
+          <div class="stat-label">Distributors</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">64</div>
+          <div class="stat-label">Districts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">1M+</div>
+          <div class="stat-label">Customers</div>
+        </div>
+      </div>
+
+      <div class="company-section">
+        <h3><i class="fas fa-road"></i> Legal Journey Timeline</h3>
+        <div class="journey-timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - Q1</div>
+            <div class="timeline-title">Partnership Formation</div>
+            <div class="timeline-desc">Founders formed initial partnership under Partnership Act 1932</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - Q2</div>
+            <div class="timeline-title">Business Contracts</div>
+            <div class="timeline-desc">First supply agreements under Contract Act 1872</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020 - Q3</div>
+            <div class="timeline-title">Company Registration</div>
+            <div class="timeline-desc">Incorporated as Private Limited Company under Companies Act 1994</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2021</div>
+            <div class="timeline-title">Sales Expansion</div>
+            <div class="timeline-desc">Nationwide distribution governed by Sale of Goods Act 1930</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2022 - Present</div>
+            <div class="timeline-title">Financial Operations</div>
+            <div class="timeline-desc">Banking & cheque operations under Negotiable Instruments Act 1881</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="company-section">
+        <h3><i class="fas fa-scale-balanced"></i> Legal Framework</h3>
+        <p>Re-Volt's operations are governed by five key business laws of Bangladesh, ensuring full legal compliance in contracts, sales, corporate governance, partnerships, and financial transactions. This AI assistant helps you understand these laws in the context of real business scenarios.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========================================================================
+// COMPREHENSIVE LEGAL KNOWLEDGE BASE WITH ALL 5 LAWS
+// ========================================================================
+const LEGAL_KB = {
+  contract: {
+    name: "Contract Act, 1872",
+    category: "Contract Law",
+    icon: "fa-file-contract",
+    color: "#0A7CFF",
+    url: "http://bdlaws.minlaw.gov.bd/act-details-26.html",
+    topics: {
+      valid_contract: {
+        keywords: ["valid contract","contract valid","essential.*contract","elements.*contract","contract requirements","what is.*contract","define contract","make.*contract","legal contract","binding contract","enforceable"],
+        section: "Section 10",
+        followups: ["What makes a contract void?", "What is consideration?", "Who can enter a contract?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Section 10, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `A valid contract requires these essential elements:
+• <strong>Free Consent</strong> — Both parties agree without coercion, fraud, or misrepresentation
+• <strong>Competent Parties</strong> — Age 18+, sound mind, not disqualified by law
+• <strong>Lawful Consideration</strong> — Something of value exchanged between parties
+• <strong>Lawful Object</strong> — Purpose must not be illegal or against public policy
+• <strong>Not Expressly Void</strong> — Must not be declared void under Sections 24-30`,
+            example: `<strong>Re-Volt Beverage Scenario:</strong> Re-Volt signs a 2-year supply agreement with ABC Distributors. Both parties are competent companies, Re-Volt provides beverages (consideration), ABC pays money (consideration), the purpose is lawful trade — this is a valid, enforceable contract.`,
+            refs: [
+              {act:"Contract Act, 1872", section:"Section 10", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"},
+              {act:"Bangladesh Parliament", section:"Law Archive", url:"http://www.parliament.gov.bd"},
+              {act:"Ministry of Law, Bangladesh", section:"Official Portal", url:"http://www.minlaw.gov.bd"}
+            ]
+          },
+          bn: {
+            area: "চুক্তি আইন",
+            section: "ধারা ১০, চুক্তি আইন ১৮৭২",
+            act: "চুক্তি আইন, ১৮৭২",
+            explanation: `একটি বৈধ চুক্তির জন্য প্রয়োজনীয় উপাদান:
+• <strong>মুক্ত সম্মতি</strong> — জবরদস্তি, প্রতারণা বা মিথ্যা উপস্থাপনা ছাড়া সম্মতি
+• <strong>যোগ্য পক্ষ</strong> — বয়স ১৮+, সুস্থ মস্তিষ্ক, আইনত অযোগ্য নয়
+• <strong>বৈধ প্রতিদান</strong> — পক্ষগুলির মধ্যে মূল্যবান কিছু বিনিময়
+• <strong>বৈধ উদ্দেশ্য</strong> — উদ্দেশ্য অবৈধ বা জনস্বার্থ বিরোধী নয়
+• <strong>বাতিল ঘোষিত নয়</strong> — ধারা ২৪-৩০ এ বাতিল ঘোষিত নয়`,
+            example: `<strong>রি-ভোল্ট দৃষ্টান্ত:</strong> রি-ভোল্ট ABC পরিবেশকদের সাথে ২ বছরের সরবরাহ চুক্তি স্বাক্ষর করে। উভয় পক্ষ যোগ্য, বৈধ প্রতিদান ও উদ্দেশ্য — এটি একটি বৈধ চুক্তি।`,
+            refs: [
+              {act:"চুক্তি আইন, ১৮৭২", section:"ধারা ১০", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}
+            ]
+          },
+          hi: {
+            area: "अनुबंध कानून",
+            section: "धारा 10, अनुबंध अधिनियम 1872",
+            act: "अनुबंध अधिनियम, 1872",
+            explanation: `एक वैध अनुबंध के लिए आवश्यक तत्व:
+• <strong>स्वतंत्र सहमति</strong> — बिना जबरदस्ती, धोखाधड़ी के सहमति
+• <strong>योग्य पक्ष</strong> — 18+ आयु, स्वस्थ मस्तिष्क
+• <strong>वैध प्रतिफल</strong> — मूल्यवान विनिमय
+• <strong>वैध उद्देश्य</strong> — अवैध नहीं
+• <strong>शून्य घोषित नहीं</strong> — धारा 24-30 में शून्य नहीं`,
+            example: `<strong>रि-वोल्ट उदाहरण:</strong> रि-वोल्ट वितरकों के साथ आपूर्ति समझौता करती है — यह वैध अनुबंध है।`,
+            refs: [{act:"अनुबंध अधिनियम, 1872", section:"धारा 10", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          ar: {
+            area: "قانون العقود",
+            section: "المادة 10، قانون العقود 1872",
+            act: "قانون العقود، 1872",
+            explanation: `يتطلب العقد الصحيح:
+• <strong>موافقة حرة</strong> — بدون إكراه أو احتيال
+• <strong>أهلية الأطراف</strong> — 18+ سنة، عقل سليم
+• <strong>مقابل مشروع</strong> — تبادل ذو قيمة
+• <strong>غرض مشروع</strong> — ليس غير قانوني
+• <strong>غير معلن باطلاً</strong>`,
+            example: `<strong>مثال ري-فولت:</strong> توقع ري-فولت اتفاقية توريد مع الموزعين — هذا عقد صحيح.`,
+            refs: [{act:"قانون العقود، 1872", section:"المادة 10", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          }
+        },
+        confidence: 96
+      },
+      offer_acceptance: {
+        keywords: ["offer","acceptance","proposal","accept","offeror","offeree","communicate","revoke","reject"],
+        section: "Sections 2-9",
+        followups: ["When can an offer be revoked?", "What is counter-offer?", "Can silence be acceptance?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 2-9, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>Offer (Section 2(a)):</strong>
+• A proposal made with intention to create legal obligation
+• Must be clear, definite, and communicated to offeree
+• Can be express (words) or implied (conduct)
+
+<strong>Acceptance (Section 2(b)):</strong>
+• Unconditional agreement to all terms of the offer
+• Must be communicated to the offeror
+• Must be within reasonable time or specified period
+• Silence does NOT constitute acceptance`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt emails a retailer: "We offer 5,000 bottles at BDT 45/bottle, valid for 7 days." The retailer replies within 5 days: "We accept your offer." — Valid offer and acceptance creates a binding contract.`,
+            refs: [
+              {act:"Contract Act, 1872", section:"Sections 2-9", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}
+            ]
+          },
+          bn: {
+            area: "চুক্তি আইন",
+            section: "ধারা ২-৯, চুক্তি আইন ১৮৭২",
+            act: "চুক্তি আইন, ১৮৭২",
+            explanation: `<strong>প্রস্তাব (ধারা ২(ক)):</strong>
+• আইনি বাধ্যবাধকতা সৃষ্টির উদ্দেশ্যে প্রস্তাব
+• স্পষ্ট, নির্দিষ্ট এবং প্রস্তাবগ্রহীতাকে জানাতে হবে
+
+<strong>গ্রহণ (ধারা ২(খ)):</strong>
+• প্রস্তাবের সকল শর্তে শর্তহীন সম্মতি
+• প্রস্তাবকারীকে জানাতে হবে
+• নীরবতা গ্রহণ নয়`,
+            example: `<strong>রি-ভোল্ট দৃষ্টান্ত:</strong> রি-ভোল্ট খুচরা বিক্রেতাকে প্রস্তাব দেয়, তারা গ্রহণ করে — বৈধ চুক্তি।`,
+            refs: [{act:"চুক্তি আইন, ১৮৭২", section:"ধারা ২-৯", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          hi: {
+            area: "अनुबंध कानून",
+            section: "धारा 2-9",
+            act: "अनुबंध अधिनियम, 1872",
+            explanation: `<strong>प्रस्ताव:</strong> कानूनी बाध्यता बनाने का इरादा
+<strong>स्वीकृति:</strong> बिना शर्त सहमति, सूचित की जानी चाहिए`,
+            example: `रि-वोल्ट प्रस्ताव देती है, खुदरा विक्रेता स्वीकार करता है — वैध अनुबंध।`,
+            refs: [{act:"अनुबंध अधिनियम", section:"धारा 2-9", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          ar: {
+            area: "قانون العقود",
+            section: "المواد 2-9",
+            act: "قانون العقود، 1872",
+            explanation: `<strong>العرض:</strong> نية إنشاء التزام قانوني
+<strong>القبول:</strong> موافقة غير مشروطة`,
+            example: `تقدم ري-فولت عرضاً، يقبله بائع التجزئة — عقد صحيح.`,
+            refs: [{act:"قانون العقود", section:"المواد 2-9", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          }
+        },
+        confidence: 94
+      },
+      consideration: {
+        keywords: ["consideration","quid pro quo","price.*promise","lawful consideration","past consideration","without consideration"],
+        section: "Sections 2(d), 25",
+        followups: ["Can past consideration be valid?", "Is love and affection valid consideration?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 2(d) & 25, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>What is Consideration?</strong>
+"Something in return" — the price for a promise.
+
+<strong>Rules of Valid Consideration:</strong>
+• Must move at the desire of the promisor
+• May be past, present, or future (unlike English law)
+• Must be real and have some value
+• Need not be adequate (courts don't judge fairness)
+• Must be lawful
+
+<strong>Exceptions (Sec 25) — Agreement without consideration is valid if:</strong>
+• Written and registered, made for natural love & affection
+• Promise to compensate for past voluntary service
+• Promise to pay a time-barred debt`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt agrees to pay BDT 10 lakh for a new bottling machine. The payment (BDT 10 lakh) is consideration for the seller's promise to deliver the machine. Both are valid considerations.`,
+            refs: [{act:"Contract Act, 1872", section:"Sections 2(d), 25", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          bn: {
+            area: "চুক্তি আইন",
+            section: "ধারা ২(ঘ) ও ২৫",
+            act: "চুক্তি আইন, ১৮৭২",
+            explanation: `<strong>প্রতিদান কী?</strong>
+"বিনিময়ে কিছু" — প্রতিশ্রুতির মূল্য।
+
+<strong>বৈধ প্রতিদানের নিয়ম:</strong>
+• প্রতিশ্রুতিদাতার ইচ্ছায় হতে হবে
+• অতীত, বর্তমান বা ভবিষ্যত হতে পারে
+• বাস্তব ও মূল্যবান হতে হবে
+• বৈধ হতে হবে`,
+            example: `<strong>রি-ভোল্ট:</strong> রি-ভোল্ট মেশিনের জন্য ১০ লাখ টাকা দেয় — এটি বৈধ প্রতিদান।`,
+            refs: [{act:"চুক্তি আইন", section:"ধারা ২(ঘ) ও ২৫", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          hi: {
+            area: "अनुबंध कानून",
+            section: "धारा 2(d) व 25",
+            act: "अनुबंध अधिनियम, 1872",
+            explanation: `<strong>प्रतिफल:</strong> "बदले में कुछ" — वादे की कीमत।
+• प्रतिज्ञाकर्ता की इच्छा से होना चाहिए
+• अतीत, वर्तमान या भविष्य हो सकता है
+• वास्तविक और वैध होना चाहिए`,
+            example: `रि-वोल्ट मशीन के लिए भुगतान करती है — वैध प्रतिफल।`,
+            refs: [{act:"अनुबंध अधिनियम", section:"धारा 2(d), 25", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          ar: {
+            area: "قانون العقود",
+            section: "المادة 2(د) و25",
+            act: "قانون العقود",
+            explanation: `<strong>العوض:</strong> "شيء في المقابل" — ثمن الوعد.
+• يجب أن يكون بطلب من الواعد
+• يمكن أن يكون ماضياً أو حاضراً أو مستقبلياً
+• يجب أن يكون حقيقياً ومشروعاً`,
+            example: `تدفع ري-فولت ثمن الآلة — عوض صحيح.`,
+            refs: [{act:"قانون العقود", section:"المادة 2(د), 25", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          }
+        },
+        confidence: 93
+      },
+      void_agreement: {
+        keywords: ["void","voidable","illegal","unlawful","void agreement","void contract","unenforceable","minor contract"],
+        section: "Sections 2(g), 10-30",
+        followups: ["What is voidable contract?", "Can a minor's contract be enforced?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 2(g), 10-30, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>Void Agreements are NOT enforceable by law:</strong>
+
+• <strong>Sec 11:</strong> By incompetent parties (minors, unsound mind)
+• <strong>Sec 23:</strong> Unlawful consideration or object
+• <strong>Sec 24:</strong> Partly unlawful consideration
+• <strong>Sec 25:</strong> Without consideration (with exceptions)
+• <strong>Sec 26:</strong> In restraint of marriage
+• <strong>Sec 27:</strong> In restraint of trade
+• <strong>Sec 28:</strong> In restraint of legal proceedings
+• <strong>Sec 29:</strong> Uncertain/meaningless agreements
+• <strong>Sec 30:</strong> Wagering agreements (betting)
+
+<strong>Voidable Contracts:</strong> Valid until avoided by aggrieved party (e.g., contracts made under coercion, fraud, misrepresentation)`,
+            example: `<strong>Re-Volt Scenario:</strong> If Re-Volt agrees to supply beverages to a company knowing they'll be illegally exported, this agreement is void under Section 23 (unlawful object).`,
+            refs: [{act:"Contract Act, 1872", section:"Sections 2(g), 10-30", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          bn: {
+            area: "চুক্তি আইন",
+            section: "ধারা ২(ছ), ১০-৩০",
+            act: "চুক্তি আইন, ১৮৭২",
+            explanation: `<strong>বাতিল চুক্তি আইনত প্রয়োগযোগ্য নয়:</strong>
+• অযোগ্য পক্ষ (নাবালক, অসুস্থ মস্তিষ্ক)
+• অবৈধ প্রতিদান বা উদ্দেশ্য
+• বিবাহ নিষেধাজ্ঞা, ব্যবসা নিষেধাজ্ঞা
+• অনিশ্চিত চুক্তি, জুয়া চুক্তি`,
+            example: `রি-ভোল্ট যদি জেনেশুনে অবৈধ রপ্তানির জন্য চুক্তি করে — এটি বাতিল।`,
+            refs: [{act:"চুক্তি আইন", section:"ধারা ২(ছ), ১০-৩০", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          hi: {area:"अनुबंध कानून",section:"धारा 2(g), 10-30",act:"अनुबंध अधिनियम",explanation:"शून्य करार कानून द्वारा प्रवर्तनीय नहीं: अवैध प्रतिफल, अयोग्य पक्ष, व्यापार निषेध।",example:"अवैध उद्देश्य वाला करार शून्य है।",refs:[{act:"अनुबंध अधिनियम",section:"धारा 2(g), 10-30",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          ar: {area:"قانون العقود",section:"المواد 2(ز), 10-30",act:"قانون العقود",explanation:"الاتفاقيات الباطلة غير قابلة للتنفيذ: عوض غير مشروع، أطراف غير أهلية.",example:"اتفاق بغرض غير مشروع باطل.",refs:[{act:"قانون العقود",section:"المواد 2(ز), 10-30",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]}
+        },
+        confidence: 92
+      },
+      breach_damages: {
+        keywords: ["breach","damages","compensation","sue","remedy","break contract","specific performance","injunction","penalty"],
+        section: "Sections 73-75",
+        followups: ["What is specific performance?", "How are damages calculated?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 73-75, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>When a party fails to perform, it's a BREACH. Remedies:</strong>
+
+<strong>1. Damages (Section 73):</strong>
+• Compensation for loss/damage naturally arising from breach
+• Must be foreseeable at the time of contract
+• Remote/indirect damages NOT recoverable
+
+<strong>2. Liquidated Damages (Section 74):</strong>
+• Pre-agreed compensation amount in contract
+• Court may reduce excessive penalty
+
+<strong>3. Specific Performance (Specific Relief Act):</strong>
+• Court orders actual performance
+• For unique goods/property
+
+<strong>4. Injunction:</strong>
+• Court prevents breach of negative obligations`,
+            example: `<strong>Re-Volt Scenario:</strong> A supplier fails to deliver raw materials on time, causing Re-Volt to lose a BDT 50 lakh order. Re-Volt can claim damages under Section 73 for the lost business opportunity.`,
+            refs: [{act:"Contract Act, 1872", section:"Sections 73-75", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          bn: {area:"চুক্তি আইন",section:"ধারা ৭৩-৭৫",act:"চুক্তি আইন",explanation:"চুক্তি ভঙ্গের প্রতিকার: ক্ষতিপূরণ (ধারা ৭৩), নির্ধারিত ক্ষতিপূরণ (ধারা ৭৪), নির্দিষ্ট কার্য সম্পাদন, নিষেধাজ্ঞা।",example:"সরবরাহকারী বিলম্ব করলে রি-ভোল্ট ধারা ৭৩-এ ক্ষতিপূরণ দাবি করতে পারে।",refs:[{act:"চুক্তি আইন",section:"ধারা ৭৩-৭৫",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          hi: {area:"अनुबंध कानून",section:"धारा 73-75",act:"अनुबंध अधिनियम",explanation:"अनुबंध भंग के उपाय: क्षतिपूर्ति, विशिष्ट पालन, निषेधाज्ञा।",example:"आपूर्तिकर्ता विफल होने पर क्षतिपूर्ति का दावा।",refs:[{act:"अनुबंध अधिनियम",section:"धारा 73-75",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          ar: {area:"قانون العقود",section:"المواد 73-75",act:"قانون العقود",explanation:"علاجات خرق العقد: التعويض، التنفيذ العيني، الأمر الزجري.",example:"يمكن لري-فولت المطالبة بالتعويض عند فشل المورد.",refs:[{act:"قانون العقود",section:"المواد 73-75",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]}
+        },
+        confidence: 94
+      },
+      agency: {
+        keywords: ["agent","agency","principal","authority","agent contract","appoint agent","power of attorney","sub-agent"],
+        section: "Sections 182-238",
+        followups: ["What is del credere agent?", "Can agent delegate powers?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 182-238, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>Agency:</strong> Agent acts on behalf of Principal
+
+<strong>Key Concepts:</strong>
+• <strong>Agent (Sec 182):</strong> Person employed to do any act or represent another
+• <strong>Principal:</strong> Person represented by the agent
+• <strong>Authority:</strong> Express (written/oral) or Implied (by conduct/necessity)
+
+<strong>Agent's Duties:</strong>
+• Follow principal's instructions
+• Exercise reasonable care and skill
+• Render proper accounts
+• Not make secret profit
+• Not delegate without authority
+
+<strong>Principal's Liability:</strong>
+• Bound by agent's authorized acts
+• Not bound by unauthorized acts (unless ratified)`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt appoints a sales agent in Chittagong with authority to sell products up to BDT 5 lakh per order. Contracts within this limit bind Re-Volt directly.`,
+            refs: [{act:"Contract Act, 1872", section:"Sections 182-238", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          bn: {area:"চুক্তি আইন",section:"ধারা ১৮২-২৩৮",act:"চুক্তি আইন",explanation:"এজেন্সি: এজেন্ট প্রিন্সিপালের পক্ষে কাজ করে। এজেন্টের কর্তব্য: নির্দেশ অনুসরণ, যত্ন, হিসাব রাখা, গোপন লাভ না করা।",example:"রি-ভোল্ট চট্টগ্রামে এজেন্ট নিয়োগ করে — এজেন্টের চুক্তি রি-ভোল্টকে বাধ্য করে।",refs:[{act:"চুক্তি আইন",section:"ধারা ১৮২-২৩৮",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          hi: {area:"अनुबंध कानून",section:"धारा 182-238",act:"अनुबंध अधिनियम",explanation:"एजेंसी: एजेंट प्रिंसिपल की ओर से कार्य करता है।",example:"रि-वोल्ट एजेंट नियुक्त करती है — एजेंट के करार बाध्यकारी।",refs:[{act:"अनुबंध अधिनियम",section:"धारा 182-238",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          ar: {area:"قانون العقود",section:"المواد 182-238",act:"قانون العقود",explanation:"الوكالة: الوكيل يتصرف نيابة عن الموكل.",example:"تعين ري-فولت وكيلاً — عقود الوكيل ملزمة.",refs:[{act:"قانون العقود",section:"المواد 182-238",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]}
+        },
+        confidence: 91
+      },
+      indemnity_guarantee: {
+        keywords: ["indemnity","guarantee","surety","guarantor","co-surety","indemnify","bail","security"],
+        section: "Sections 124-147",
+        followups: ["When is surety discharged?", "Rights of surety after payment?"],
+        answer: {
+          en: {
+            area: "Contract Law",
+            section: "Sections 124-147, Contract Act 1872",
+            act: "Contract Act, 1872",
+            explanation: `<strong>Contract of Indemnity (Sec 124):</strong>
+• One party promises to save another from loss
+• TWO parties: Indemnifier & Indemnified
+
+<strong>Contract of Guarantee (Sec 126):</strong>
+• Third party guarantees performance of another's obligation
+• THREE parties: Creditor, Principal Debtor, Surety
+
+<strong>Key Rules:</strong>
+• Surety's liability is co-extensive with debtor (Sec 128)
+• Surety's right of subrogation (Sec 140)
+• Surety discharged if creditor releases debtor (Sec 134)
+• Co-sureties share liability equally (Sec 146)`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt takes a BDT 50 lakh bank loan. A director gives personal guarantee. If Re-Volt defaults, the director (surety) becomes liable to repay.`,
+            refs: [{act:"Contract Act, 1872", section:"Sections 124-147", url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]
+          },
+          bn: {area:"চুক্তি আইন",section:"ধারা ১২৪-১৪৭",act:"চুক্তি আইন",explanation:"ক্ষতিপূরণ: দুই পক্ষ। জামিন: তিন পক্ষ — পাওনাদার, মূল দেনাদার, জামিনদার। জামিনদারের দায় মূল দেনাদারের সমান।",example:"রি-ভোল্ট ঋণে পরিচালক জামিন দিলে — খেলাপি হলে পরিচালক দায়ী।",refs:[{act:"চুক্তি আইন",section:"ধারা ১২৪-১৪৭",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          hi: {area:"अनुबंध कानून",section:"धारा 124-147",act:"अनुबंध अधिनियम",explanation:"क्षतिपूर्ति: दो पक्ष। गारंटी: तीन पक्ष — लेनदार, मुख्य देनदार, प्रतिभू।",example:"निदेशक गारंटी देता है — डिफॉल्ट पर निदेशक जिम्मेदार।",refs:[{act:"अनुबंध अधिनियम",section:"धारा 124-147",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]},
+          ar: {area:"قانون العقود",section:"المواد 124-147",act:"قانون العقود",explanation:"التعويض: طرفان. الضمان: ثلاثة أطراف — الدائن، المدين الرئيسي، الضامن.",example:"المدير يقدم ضماناً — عند التخلف يكون المدير مسؤولاً.",refs:[{act:"قانون العقود",section:"المواد 124-147",url:"http://bdlaws.minlaw.gov.bd/act-details-26.html"}]}
+        },
+        confidence: 92
+      }
+    }
+  },
+  sale: {
+    name: "Sale of Goods Act, 1930",
+    category: "Sale of Goods",
+    icon: "fa-cart-shopping",
+    color: "#00D084",
+    url: "http://bdlaws.minlaw.gov.bd/act-details-185.html",
+    topics: {
+      sale_agreement: {
+        keywords: ["sale","agreement to sell","sale vs agreement","sale contract","sell goods","buyer seller","absolute sale","conditional sale"],
+        section: "Sections 4-6",
+        followups: ["When does ownership transfer?", "What about future goods?"],
+        answer: {
+          en: {
+            area: "Sale of Goods",
+            section: "Sections 4-6, Sale of Goods Act 1930",
+            act: "Sale of Goods Act, 1930",
+            explanation: `<strong>SALE (Sec 4(3)):</strong>
+• Ownership transfers IMMEDIATELY from seller to buyer
+• Executed contract
+• Buyer becomes owner at once
+
+<strong>AGREEMENT TO SELL (Sec 4(3)):</strong>
+• Ownership transfers in FUTURE
+• Executory contract
+• Seller remains owner until conditions fulfilled
+
+<strong>Key Differences:</strong>
+| Aspect | Sale | Agreement to Sell |
+|--------|------|-------------------|
+| Ownership | Immediate transfer | Future transfer |
+| Risk | Passes to buyer | Remains with seller |
+| Remedies | Sue for price | Sue for damages |`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt delivers 5,000 bottles to a retailer TODAY and receives payment = SALE. Re-Volt promises to deliver 5,000 bottles NEXT MONTH = Agreement to Sell.`,
+            refs: [{act:"Sale of Goods Act, 1930", section:"Sections 4-6", url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]
+          },
+          bn: {area:"পণ্য বিক্রয় আইন",section:"ধারা ৪-৬",act:"পণ্য বিক্রয় আইন",explanation:"বিক্রয়: মালিকানা তাৎক্ষণিক হস্তান্তর। বিক্রয় চুক্তি: ভবিষ্যতে হস্তান্তর। বিক্রয়ে ঝুঁকি ক্রেতার কাছে যায়।",example:"আজ সরবরাহ ও অর্থ পেলে = বিক্রয়। পরে সরবরাহের প্রতিশ্রুতি = বিক্রয় চুক্তি।",refs:[{act:"পণ্য বিক্রয় আইন",section:"ধারা ৪-৬",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          hi: {area:"माल बिक्री अधिनियम",section:"धारा 4-6",act:"माल बिक्री अधिनियम",explanation:"बिक्री: स्वामित्व तुरंत हस्तांतरित। बिक्री का करार: भविष्य में हस्तांतरण।",example:"आज डिलीवरी = बिक्री। अगले महीने = करार।",refs:[{act:"माल बिक्री अधिनियम",section:"धारा 4-6",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          ar: {area:"قانون بيع البضائع",section:"المواد 4-6",act:"قانون بيع البضائع",explanation:"البيع: نقل فوري للملكية. اتفاق البيع: نقل مستقبلي.",example:"تسليم اليوم = بيع. وعد للشهر القادم = اتفاق.",refs:[{act:"قانون بيع البضائع",section:"المواد 4-6",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]}
+        },
+        confidence: 95
+      },
+      conditions_warranties: {
+        keywords: ["condition","warranty","implied condition","implied warranty","quality","fitness","description","title","merchantable"],
+        section: "Sections 12-17",
+        followups: ["Can conditions be waived?", "What is merchantable quality?"],
+        answer: {
+          en: {
+            area: "Sale of Goods",
+            section: "Sections 12-17, Sale of Goods Act 1930",
+            act: "Sale of Goods Act, 1930",
+            explanation: `<strong>CONDITION (Sec 12(2)):</strong>
+• Essential stipulation going to the root of contract
+• Breach allows REJECTION of goods + damages
+• Can be express or implied
+
+<strong>WARRANTY (Sec 12(3)):</strong>
+• Collateral/secondary stipulation
+• Breach allows only DAMAGES (not rejection)
+
+<strong>IMPLIED CONDITIONS:</strong>
+• <strong>Title (Sec 14):</strong> Seller has right to sell
+• <strong>Description (Sec 15):</strong> Goods match description
+• <strong>Quality/Fitness (Sec 16):</strong> Fit for purpose, merchantable
+
+<strong>IMPLIED WARRANTIES:</strong>
+• Quiet possession
+• Freedom from encumbrances`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt sells "Sugar-Free" drinks but they contain sugar = Breach of condition by description. Buyer can REJECT and claim damages.`,
+            refs: [{act:"Sale of Goods Act, 1930", section:"Sections 12-17", url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]
+          },
+          bn: {area:"পণ্য বিক্রয় আইন",section:"ধারা ১২-১৭",act:"পণ্য বিক্রয় আইন",explanation:"শর্ত ভঙ্গ: পণ্য প্রত্যাখ্যান + ক্ষতিপূরণ। ওয়ারেন্টি ভঙ্গ: শুধু ক্ষতিপূরণ। অন্তর্নিহিত শর্ত: মালিকানা, বর্ণনা, গুণমান।",example:"'চিনিমুক্ত' লেখা কিন্তু চিনি আছে = শর্ত ভঙ্গ, ক্রেতা প্রত্যাখ্যান করতে পারে।",refs:[{act:"পণ্য বিক্রয় আইন",section:"ধারা ১২-১৭",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          hi: {area:"माल बिक्री अधिनियम",section:"धारा 12-17",act:"माल बिक्री अधिनियम",explanation:"शर्त भंग: माल अस्वीकार + क्षतिपूर्ति। वारंटी भंग: केवल क्षतिपूर्ति।",example:"'शुगर-फ्री' लिखा पर चीनी है = शर्त भंग।",refs:[{act:"माल बिक्री अधिनियम",section:"धारा 12-17",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          ar: {area:"قانون بيع البضائع",section:"المواد 12-17",act:"قانون بيع البضائع",explanation:"خرق الشرط: رفض + تعويض. خرق الضمان: تعويض فقط.",example:"مكتوب 'خالي من السكر' لكن يحتوي سكر = خرق شرط.",refs:[{act:"قانون بيع البضائع",section:"المواد 12-17",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]}
+        },
+        confidence: 94
+      },
+      unpaid_seller: {
+        keywords: ["unpaid seller","seller right","lien","stoppage","transit","resale","seller not paid","retention","payment not received"],
+        section: "Sections 45-54",
+        followups: ["When does lien end?", "Can seller resell goods?"],
+        answer: {
+          en: {
+            area: "Sale of Goods",
+            section: "Sections 45-54, Sale of Goods Act 1930",
+            act: "Sale of Goods Act, 1930",
+            explanation: `<strong>Who is Unpaid Seller? (Sec 45)</strong>
+• Not received full price, OR
+• Bill of exchange/cheque dishonoured
+
+<strong>Rights AGAINST GOODS:</strong>
+
+<strong>1. Right of Lien (Sec 47):</strong>
+• Retain possession until payment
+• Only when seller has possession
+• Ends when: buyer pays, seller delivers to carrier, buyer obtains possession
+
+<strong>2. Stoppage in Transit (Sec 50):</strong>
+• Stop goods while in transit
+• Available when buyer becomes INSOLVENT
+• Seller can resume possession
+
+<strong>3. Right of Resale (Sec 54):</strong>
+• Resell perishable goods without notice
+• Resell other goods after reasonable notice
+• Claim damages for any loss`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt ships 10,000 bottles worth BDT 20 lakh. While in transit, they learn the buyer declared bankruptcy. Re-Volt can exercise STOPPAGE IN TRANSIT and recover the goods.`,
+            refs: [{act:"Sale of Goods Act, 1930", section:"Sections 45-54", url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]
+          },
+          bn: {area:"পণ্য বিক্রয় আইন",section:"ধারা ৪৫-৫৪",act:"পণ্য বিক্রয় আইন",explanation:"অপরিশোধিত বিক্রেতার অধিকার: ধারণাধিকার (পণ্য রাখা), ট্রানজিটে স্থগিতাদেশ (ক্রেতা দেউলিয়া হলে), পুনঃবিক্রয়।",example:"ক্রেতা দেউলিয়া হলে রি-ভোল্ট ট্রানজিটে পণ্য থামাতে পারে।",refs:[{act:"পণ্য বিক্রয় আইন",section:"ধারা ৪৫-৫৪",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          hi: {area:"माल बिक्री अधिनियम",section:"धारा 45-54",act:"माल बिक्री अधिनियम",explanation:"अवैतनिक विक्रेता के अधिकार: ग्रहणाधिकार, पारगमन रोक, पुनर्विक्रय।",example:"क्रेता दिवालिया होने पर पारगमन में माल रोकें।",refs:[{act:"माल बिक्री अधिनियम",section:"धारा 45-54",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          ar: {area:"قانون بيع البضائع",section:"المواد 45-54",act:"قانون بيع البضائع",explanation:"حقوق البائع غير المدفوع: حق الحبس، إيقاف النقل، إعادة البيع.",example:"عند إفلاس المشتري يمكن إيقاف البضاعة في الطريق.",refs:[{act:"قانون بيع البضائع",section:"المواد 45-54",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]}
+        },
+        confidence: 96
+      },
+      transfer_ownership: {
+        keywords: ["transfer ownership","property goods","ownership transfer","risk transfer","passing property","title transfer","delivery"],
+        section: "Sections 18-26",
+        followups: ["Does risk follow ownership?", "What about goods in transit?"],
+        answer: {
+          en: {
+            area: "Sale of Goods",
+            section: "Sections 18-26, Sale of Goods Act 1930",
+            act: "Sale of Goods Act, 1930",
+            explanation: `<strong>Rules for Transfer of Ownership:</strong>
+
+<strong>1. Intention (Sec 19):</strong>
+• Ownership transfers when PARTIES INTEND
+
+<strong>2. Specific goods in deliverable state (Sec 20):</strong>
+• Ownership passes at TIME OF CONTRACT
+
+<strong>3. Specific goods + seller must do something (Sec 21):</strong>
+• Ownership passes when done AND buyer notified
+
+<strong>4. Goods on approval (Sec 24):</strong>
+• Ownership passes when buyer accepts or retains beyond agreed time
+
+<strong>5. Unascertained goods (Sec 23):</strong>
+• Ownership passes upon APPROPRIATION with consent
+
+<strong>RISK follows OWNERSHIP (Sec 26):</strong>
+• Unless parties agree otherwise`,
+            example: `<strong>Re-Volt Scenario:</strong> A buyer selects 500 specific bottles from Re-Volt's warehouse and pays. Ownership transfers immediately. If warehouse catches fire, BUYER bears the loss.`,
+            refs: [{act:"Sale of Goods Act, 1930", section:"Sections 18-26", url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]
+          },
+          bn: {area:"পণ্য বিক্রয় আইন",section:"ধারা ১৮-২৬",act:"পণ্য বিক্রয় আইন",explanation:"মালিকানা হস্তান্তর: পক্ষদের ইচ্ছানুযায়ী। নির্দিষ্ট পণ্য: চুক্তির সময়ে। ঝুঁকি মালিকানা অনুসরণ করে।",example:"ক্রেতা পণ্য বাছাই করে অর্থ দিলে মালিকানা হস্তান্তর — আগুন লাগলে ক্রেতার ক্ষতি।",refs:[{act:"পণ্য বিক্রয় আইন",section:"ধারা ১৮-২৬",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          hi: {area:"माल बिक्री अधिनियम",section:"धारा 18-26",act:"माल बिक्री अधिनियम",explanation:"स्वामित्व हस्तांतरण: पक्षों की इच्छा अनुसार। जोखिम स्वामित्व के साथ।",example:"क्रेता चुनता और भुगतान करता है — स्वामित्व हस्तांतरित।",refs:[{act:"माल बिक्री अधिनियम",section:"धारा 18-26",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]},
+          ar: {area:"قانون بيع البضائع",section:"المواد 18-26",act:"قانون بيع البضائع",explanation:"نقل الملكية: حسب نية الأطراف. المخاطر تتبع الملكية.",example:"المشتري يختار ويدفع — الملكية تنتقل.",refs:[{act:"قانون بيع البضائع",section:"المواد 18-26",url:"http://bdlaws.minlaw.gov.bd/act-details-185.html"}]}
+        },
+        confidence: 93
+      }
+    }
+  },
+  negotiable: {
+    name: "Negotiable Instruments Act, 1881",
+    category: "Negotiable Instruments",
+    icon: "fa-money-check-dollar",
+    color: "#FF6B00",
+    url: "http://bdlaws.minlaw.gov.bd/act-details-21.html",
+    topics: {
+      cheque_bounce: {
+        keywords: ["cheque","check","bounce","dishon","cheque bounce","bounced","nsf","138","cheque return","returned cheque","insufficient fund"],
+        section: "Section 138",
+        followups: ["What is the punishment?", "Can drawer be arrested?", "Time limit for notice?"],
+        answer: {
+          en: {
+            area: "Negotiable Instruments",
+            section: "Section 138, Negotiable Instruments Act 1881",
+            act: "Negotiable Instruments Act, 1881",
+            explanation: `<strong>Cheque Bounce = Criminal Offence (Sec 138)</strong>
+
+<strong>When it applies:</strong>
+• Cheque for discharge of debt/liability
+• Returned by bank unpaid (insufficient funds, account closed, etc.)
+
+<strong>Steps for Payee:</strong>
+1. <strong>Within 30 days of dishonour:</strong> Send written demand notice to drawer
+2. <strong>Drawer gets 15 days</strong> to make payment after notice
+3. <strong>If not paid:</strong> File criminal complaint within 30 days
+
+<strong>Punishment:</strong>
+• Imprisonment up to <strong>2 years</strong>, OR
+• Fine up to <strong>double the cheque amount</strong>, OR
+• <strong>Both</strong>
+
+<strong>Important:</strong>
+• Payee must be the complainant
+• Court may order compensation to payee`,
+            example: `<strong>Re-Volt Scenario:</strong> A distributor pays Re-Volt with a BDT 5 lakh cheque that bounces. Re-Volt sends legal notice within 30 days. After 15 days with no payment, Re-Volt files criminal case. Distributor faces up to 2 years jail or BDT 10 lakh fine.`,
+            refs: [
+              {act:"Negotiable Instruments Act, 1881", section:"Section 138", url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"},
+              {act:"Supreme Court of Bangladesh", section:"NI Act Judgments", url:"http://www.supremecourt.gov.bd"}
+            ]
+          },
+          bn: {area:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ১৩৮",act:"হস্তান্তরযোগ্য দলিল আইন",explanation:"চেক বাউন্স ফৌজদারি অপরাধ। ধাপ: ৩০ দিনে নোটিশ → ১৫ দিন সময় → মামলা। শাস্তি: ২ বছর কারাদণ্ড বা চেকের দ্বিগুণ জরিমানা।",example:"পরিবেশকের ৫ লাখ টাকার চেক বাউন্স → নোটিশ → মামলা → ২ বছর জেল বা ১০ লাখ জরিমানা।",refs:[{act:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ১৩৮",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          hi: {area:"परक्राम्य लिखत अधिनियम",section:"धारा 138",act:"परक्राम्य लिखत अधिनियम",explanation:"चेक बाउंस अपराध है। 30 दिन में नोटिस → 15 दिन समय → मुकदमा। सजा: 2 साल कैद या दोगुना जुर्माना।",example:"5 लाख का चेक बाउंस → नोटिस → मुकदमा → 2 साल जेल।",refs:[{act:"परक्राम्य लिखत अधिनियम",section:"धारा 138",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          ar: {area:"قانون الأوراق التجارية",section:"المادة 138",act:"قانون الأوراق التجارية",explanation:"ارتجاع الشيك جريمة. 30 يوم للإشعار → 15 يوم مهلة → دعوى. العقوبة: سنتان سجن أو ضعف المبلغ.",example:"شيك 5 لاك يرتجع → إشعار → دعوى → سنتان سجن.",refs:[{act:"قانون الأوراق التجارية",section:"المادة 138",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]}
+        },
+        confidence: 97
+      },
+      promissory_note: {
+        keywords: ["promissory note","promise pay","pronote","written promise","IOU","acknowledge debt"],
+        section: "Section 4",
+        followups: ["Can promissory note be verbal?", "Who are the parties?"],
+        answer: {
+          en: {
+            area: "Negotiable Instruments",
+            section: "Section 4, Negotiable Instruments Act 1881",
+            act: "Negotiable Instruments Act, 1881",
+            explanation: `<strong>Promissory Note = Written promise to pay</strong>
+
+<strong>Definition (Sec 4):</strong>
+Instrument in writing containing an unconditional undertaking, signed by the maker, to pay a certain sum of money to a specified person or bearer.
+
+<strong>Essential Elements:</strong>
+• Must be in <strong>WRITING</strong>
+• <strong>Unconditional</strong> promise to pay
+• <strong>Signed</strong> by the maker
+• <strong>Certain sum</strong> of money
+• Payable to a <strong>certain person</strong> or bearer
+
+<strong>Parties:</strong>
+• <strong>Maker:</strong> Person who makes the note and promises to pay
+• <strong>Payee:</strong> Person to whom payment is promised
+
+<strong>NOT valid as promissory note:</strong>
+• Verbal promise
+• Conditional promise
+• Promise to pay in goods`,
+            example: `<strong>Re-Volt Scenario:</strong> A partner writes: "I promise to pay Re-Volt Beverage Ltd. the sum of BDT 10,00,000 (Ten Lakh) on or before January 1, 2025. Signed: [Name]" — This is a valid promissory note.`,
+            refs: [{act:"Negotiable Instruments Act, 1881", section:"Section 4", url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]
+          },
+          bn: {area:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ৪",act:"হস্তান্তরযোগ্য দলিল আইন",explanation:"প্রতিশ্রুতি পত্র = নির্দিষ্ট অর্থ প্রদানের লিখিত শর্তহীন প্রতিশ্রুতি। উপাদান: লিখিত, শর্তহীন, স্বাক্ষরিত, নির্দিষ্ট অর্থ। পক্ষ: প্রণেতা ও পেয়ি।",example:"'আমি রি-ভোল্টকে ১০ লাখ টাকা দেব' — বৈধ প্রতিশ্রুতি পত্র।",refs:[{act:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ৪",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          hi: {area:"परक्राम्य लिखत अधिनियम",section:"धारा 4",act:"परक्राम्य लिखत अधिनियम",explanation:"वचन पत्र = निश्चित राशि भुगतान का लिखित वादा। लिखित, बिना शर्त, हस्ताक्षरित होना चाहिए।",example:"'मैं 10 लाख रुपये दूंगा' — वैध वचन पत्र।",refs:[{act:"परक्राम्य लिखत अधिनियम",section:"धारा 4",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          ar: {area:"قانون الأوراق التجارية",section:"المادة 4",act:"قانون الأوراق التجارية",explanation:"السند الإذني = وعد مكتوب بدفع مبلغ محدد. يجب أن يكون مكتوباً، غير مشروط، موقعاً.",example:"'أتعهد بدفع 10 لاك' — سند إذني صحيح.",refs:[{act:"قانون الأوراق التجارية",section:"المادة 4",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]}
+        },
+        confidence: 93
+      },
+      bill_of_exchange: {
+        keywords: ["bill of exchange","hundi","drawer drawee","draft","exchange bill","trade bill"],
+        section: "Section 5",
+        followups: ["What is acceptance of bill?", "Types of bills?"],
+        answer: {
+          en: {
+            area: "Negotiable Instruments",
+            section: "Section 5, Negotiable Instruments Act 1881",
+            act: "Negotiable Instruments Act, 1881",
+            explanation: `<strong>Bill of Exchange = Order to pay</strong>
+
+<strong>Definition (Sec 5):</strong>
+Instrument in writing containing an unconditional ORDER, signed by the maker, directing a certain person to pay a certain sum of money to a specified person or bearer.
+
+<strong>THREE Parties:</strong>
+• <strong>Drawer:</strong> Person who draws/creates the bill
+• <strong>Drawee:</strong> Person ordered to pay (becomes Acceptor after acceptance)
+• <strong>Payee:</strong> Person who receives payment
+
+<strong>Essential Elements:</strong>
+• Unconditional ORDER (not request/prayer)
+• In writing and signed
+• Certain sum of money
+• Definite time/on demand
+
+<strong>Types:</strong>
+• Demand bill / Usance bill
+• Inland / Foreign bill
+• Trade bill / Accommodation bill`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt (Drawer) directs its distributor ABC Ltd. (Drawee) to pay BDT 5,00,000 to Raw Material Supplier XYZ (Payee) in 60 days. ABC accepts by signing. This is a Bill of Exchange.`,
+            refs: [{act:"Negotiable Instruments Act, 1881", section:"Section 5", url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]
+          },
+          bn: {area:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ৫",act:"হস্তান্তরযোগ্য দলিল আইন",explanation:"বিনিময় বিল = অর্থ প্রদানের আদেশ। তিন পক্ষ: ড্রয়ার (আদেশদাতা), ড্রয়ি (আদিষ্ট), পেয়ি (প্রাপক)। শর্তহীন আদেশ, লিখিত, স্বাক্ষরিত।",example:"রি-ভোল্ট পরিবেশককে আদেশ দেয় সরবরাহকারীকে ৫ লাখ দিতে — বিনিময় বিল।",refs:[{act:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ৫",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          hi: {area:"परक्राम्य लिखत अधिनियम",section:"धारा 5",act:"परक्राम्य लिखत अधिनियम",explanation:"विनिमय पत्र = भुगतान का आदेश। तीन पक्ष: लेखक, अदाकर्ता, पाने वाला।",example:"रि-वोल्ट वितरक को आपूर्तिकर्ता को भुगतान का आदेश देती है।",refs:[{act:"परक्राम्य लिखत अधिनियम",section:"धारा 5",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          ar: {area:"قانون الأوراق التجارية",section:"المادة 5",act:"قانون الأوراق التجارية",explanation:"سند السحب = أمر بالدفع. ثلاثة أطراف: الساحب، المسحوب عليه، المستفيد.",example:"ري-فولت تأمر الموزع بالدفع للمورد — سند سحب.",refs:[{act:"قانون الأوراق التجارية",section:"المادة 5",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]}
+        },
+        confidence: 92
+      },
+      endorsement: {
+        keywords: ["endorsement","endorse","transfer instrument","negotiate","sign back","indorse","holder due course"],
+        section: "Sections 15-16, 52",
+        followups: ["Types of endorsement?", "Who is holder in due course?"],
+        answer: {
+          en: {
+            area: "Negotiable Instruments",
+            section: "Sections 15-16, 52, NI Act 1881",
+            act: "Negotiable Instruments Act, 1881",
+            explanation: `<strong>Endorsement = Transfer of negotiable instrument</strong>
+
+<strong>How to Endorse (Sec 15):</strong>
+Sign on the BACK of the instrument + deliver to endorsee
+
+<strong>Types of Endorsement:</strong>
+• <strong>Blank:</strong> Only signature, no endorsee named — payable to bearer
+• <strong>Special/Full:</strong> Names the endorsee — "Pay to ABC"
+• <strong>Restrictive:</strong> Limits further transfer — "Pay to ABC only"
+• <strong>Conditional:</strong> Subject to conditions
+• <strong>Sans Recourse:</strong> Endorser not liable if dishonoured
+
+<strong>Holder in Due Course (Sec 52):</strong>
+• Obtains instrument for value
+• Before maturity
+• In good faith, without notice of defect`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt receives a BDT 3 lakh cheque from Customer A. Re-Volt endorses it "Pay to Supplier B" by signing on back. Now Supplier B can collect the amount.`,
+            refs: [{act:"Negotiable Instruments Act, 1881", section:"Sections 15-16, 52", url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]
+          },
+          bn: {area:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ১৫-১৬, ৫২",act:"হস্তান্তরযোগ্য দলিল আইন",explanation:"পৃষ্ঠাঙ্কন = দলিল হস্তান্তর। প্রকার: সাধারণ, বিশেষ, সীমাবদ্ধ, শর্তাধীন। যথাসময়ে ধারক: মূল্যের বিনিময়ে, সৎভাবে প্রাপ্ত।",example:"রি-ভোল্ট গ্রাহকের চেক সরবরাহকারীকে পৃষ্ঠাঙ্কন করে দেয়।",refs:[{act:"হস্তান্তরযোগ্য দলিল আইন",section:"ধারা ১৫-১৬, ৫২",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          hi: {area:"परक्राम्य लिखत अधिनियम",section:"धारा 15-16, 52",act:"परक्राम्य लिखत अधिनियम",explanation:"पृष्ठांकन = लिखत का हस्तांतरण। प्रकार: रिक्त, विशेष, प्रतिबंधात्मक, सशर्त।",example:"रि-वोल्ट ग्राहक का चेक आपूर्तिकर्ता को पृष्ठांकित करती है।",refs:[{act:"परक्राम्य लिखत अधिनियम",section:"धारा 15-16, 52",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]},
+          ar: {area:"قانون الأوراق التجارية",section:"المواد 15-16, 52",act:"قانون الأوراق التجارية",explanation:"التظهير = نقل الورقة التجارية. الأنواع: على بياض، خاص، مقيد، مشروط.",example:"ري-فولت تظهر شيك العميل للمورد.",refs:[{act:"قانون الأوراق التجارية",section:"المواد 15-16, 52",url:"http://bdlaws.minlaw.gov.bd/act-details-21.html"}]}
+        },
+        confidence: 91
+      }
+    }
+  },
+  company: {
+    name: "Companies Act, 1994 (Bangladesh)",
+    category: "Company Law",
+    icon: "fa-building-columns",
+    color: "#8B5CF6",
+    url: "http://bdlaws.minlaw.gov.bd/act-details-788.html",
+    topics: {
+      company_formation: {
+        keywords: ["register company","form company","incorporate","incorporation","start company","create company","company registration","RJSC","private limited","public limited","company bangladesh"],
+        section: "Sections 4-27",
+        followups: ["Documents needed?", "Cost of registration?", "Private vs Public company?"],
+        answer: {
+          en: {
+            area: "Company Law",
+            section: "Sections 4-27, Companies Act 1994",
+            act: "Companies Act, 1994",
+            explanation: `<strong>Steps to Register a Company in Bangladesh:</strong>
+
+<strong>Step 1: Name Clearance</strong>
+• Apply to RJSC for name approval
+• Name must end with "Ltd." (Private) or "Public Ltd."
+
+<strong>Step 2: Prepare Documents</strong>
+• Memorandum of Association (MOA)
+• Articles of Association (AOA)
+• Form I, VI, IX, X, XII
+
+<strong>Step 3: Submit to RJSC</strong>
+• File documents with prescribed fees
+• RJSC verifies and processes
+
+<strong>Step 4: Certificate of Incorporation</strong>
+• Company legally exists from this date
+
+<strong>Minimum Requirements:</strong>
+| Type | Shareholders | Directors | Capital |
+|------|-------------|-----------|---------|
+| Private Ltd. | 2-50 | 2+ | Any |
+| Public Ltd. | 7+ | 3+ | BDT 3 Cr (listed) |`,
+            example: `<strong>Re-Volt Journey:</strong> Re-Volt founders obtained name clearance from RJSC, prepared MOA (beverage business objects), AOA (internal rules), filed documents, and received Certificate of Incorporation as "Re-Volt Beverage Ltd." — a Private Limited Company.`,
+            refs: [
+              {act:"Companies Act, 1994", section:"Sections 4-27", url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"},
+              {act:"RJSC Bangladesh", section:"Company Registration", url:"http://www.roc.gov.bd"}
+            ]
+          },
+          bn: {area:"কোম্পানি আইন",section:"ধারা ৪-২৭",act:"কোম্পানি আইন, ১৯৯৪",explanation:"কোম্পানি নিবন্ধনের ধাপ: ১) RJSC-এ নাম অনুমোদন ২) স্মারকলিপি ও সংঘবিধি প্রস্তুত ৩) দলিল দাখিল ৪) নিগমন সনদ। প্রাইভেট: ২-৫০ শেয়ারহোল্ডার, ২+ পরিচালক। পাবলিক: ৭+, ৩+ পরিচালক।",example:"রি-ভোল্ট RJSC-এ নিবন্ধিত হয়ে 'প্রাইভেট লিমিটেড' কোম্পানি হিসেবে কার্যক্রম শুরু করে।",refs:[{act:"কোম্পানি আইন, ১৯৯৪",section:"ধারা ৪-২৭",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          hi: {area:"कंपनी कानून",section:"धारा 4-27",act:"कंपनी अधिनियम, 1994",explanation:"कंपनी पंजीकरण: नाम मंजूरी → ज्ञापन/नियम → RJSC में दाखिल → निगमन प्रमाणपत्र। प्राइवेट: 2-50 शेयरधारक। पब्लिक: 7+।",example:"रि-वोल्ट RJSC में पंजीकृत प्राइवेट लिमिटेड कंपनी है।",refs:[{act:"कंपनी अधिनियम",section:"धारा 4-27",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          ar: {area:"قانون الشركات",section:"المواد 4-27",act:"قانون الشركات، 1994",explanation:"تسجيل الشركة: موافقة الاسم ← عقد التأسيس ← التقديم ← شهادة التأسيس. خاصة: 2-50 مساهم. عامة: 7+.",example:"ري-فولت مسجلة كشركة خاصة محدودة.",refs:[{act:"قانون الشركات",section:"المواد 4-27",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]}
+        },
+        confidence: 97
+      },
+      memorandum_articles: {
+        keywords: ["memorandum","MOA","articles","AOA","object clause","company constitution","registered office","capital clause"],
+        section: "Sections 6-20",
+        followups: ["Can MOA be altered?", "What is ultra vires?"],
+        answer: {
+          en: {
+            area: "Company Law",
+            section: "Sections 6-20, Companies Act 1994",
+            act: "Companies Act, 1994",
+            explanation: `<strong>MEMORANDUM OF ASSOCIATION (MOA)</strong>
+"Constitution" of the company — defines its relationship with outside world
+
+<strong>Clauses:</strong>
+• <strong>Name Clause:</strong> Company name (must end with "Ltd.")
+• <strong>Registered Office Clause:</strong> Location in Bangladesh
+• <strong>Object Clause:</strong> Business activities company can undertake
+• <strong>Liability Clause:</strong> Liability of members is limited
+• <strong>Capital Clause:</strong> Authorized share capital
+• <strong>Subscription Clause:</strong> Founders' share subscription
+
+<strong>ARTICLES OF ASSOCIATION (AOA)</strong>
+Internal rules and regulations — governs internal management
+
+<strong>Contains:</strong>
+• Share transfer procedures
+• Directors' powers and meetings
+• Voting rights
+• Dividend declaration
+• Borrowing powers
+
+<strong>Ultra Vires:</strong> Acts beyond MOA are void and unenforceable`,
+            example: `<strong>Re-Volt MOA:</strong> Object Clause states "manufacture, distribute, and sell beverages including electrolyte drinks." Re-Volt CANNOT start a car manufacturing business — it would be ultra vires.`,
+            refs: [{act:"Companies Act, 1994", section:"Sections 6-20", url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]
+          },
+          bn: {area:"কোম্পানি আইন",section:"ধারা ৬-২০",act:"কোম্পানি আইন",explanation:"স্মারকলিপি (MOA): কোম্পানির সংবিধান — নাম, কার্যালয়, উদ্দেশ্য, দায়, মূলধন। সংঘবিধি (AOA): অভ্যন্তরীণ নিয়ম — শেয়ার হস্তান্তর, পরিচালক, ভোট।",example:"রি-ভোল্টের উদ্দেশ্য ধারায় 'পানীয় উৎপাদন ও বিক্রয়' আছে — গাড়ি ব্যবসা অতি-ক্ষমতা।",refs:[{act:"কোম্পানি আইন",section:"ধারা ৬-২০",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          hi: {area:"कंपनी कानून",section:"धारा 6-20",act:"कंपनी अधिनियम",explanation:"ज्ञापन (MOA): कंपनी का संविधान — नाम, कार्यालय, उद्देश्य, पूंजी। नियम (AOA): आंतरिक नियम।",example:"रि-वोल्ट का उद्देश्य पेय पदार्थ है — कार व्यापार अल्ट्रा वायर्स।",refs:[{act:"कंपनी अधिनियम",section:"धारा 6-20",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          ar: {area:"قانون الشركات",section:"المواد 6-20",act:"قانون الشركات",explanation:"عقد التأسيس: دستور الشركة — الاسم، المقر، الأهداف، رأس المال. النظام الأساسي: القواعد الداخلية.",example:"هدف ري-فولت هو المشروبات — تجارة السيارات خارج الصلاحيات.",refs:[{act:"قانون الشركات",section:"المواد 6-20",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]}
+        },
+        confidence: 94
+      },
+      directors: {
+        keywords: ["director","board","appoint director","director duty","manage company","fiduciary","director liability","remove director","corporate governance"],
+        section: "Sections 90-117",
+        followups: ["Director qualifications?", "Can director be removed?", "Director's liability?"],
+        answer: {
+          en: {
+            area: "Company Law",
+            section: "Sections 90-117, Companies Act 1994",
+            act: "Companies Act, 1994",
+            explanation: `<strong>Directors = Managers of Company Affairs</strong>
+
+<strong>Minimum Directors:</strong>
+• Private Company: 2 directors
+• Public Company: 3 directors
+
+<strong>Directors' DUTIES (Fiduciary):</strong>
+• Act in good faith in company's interest
+• Exercise reasonable care and skill
+• Avoid conflicts of interest
+• Not make secret profit
+• Disclose interest in contracts
+• Attend board meetings
+
+<strong>Directors' POWERS:</strong>
+• Manage day-to-day business
+• Enter contracts on behalf of company
+• Appoint senior management
+• Recommend dividends
+
+<strong>Disqualification:</strong>
+• Undischarged insolvent
+• Convicted of offence involving fraud
+• Unsound mind`,
+            example: `<strong>Re-Volt Scenario:</strong> Re-Volt has 3 directors. Director A enters into a supply contract with his own company without disclosing this interest to the board = Breach of fiduciary duty. Other directors can hold A personally liable.`,
+            refs: [{act:"Companies Act, 1994", section:"Sections 90-117", url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]
+          },
+          bn: {area:"কোম্পানি আইন",section:"ধারা ৯০-১১৭",act:"কোম্পানি আইন",explanation:"পরিচালক = কোম্পানি পরিচালনার দায়িত্বে। প্রাইভেট: ন্যূনতম ২, পাবলিক: ৩। কর্তব্য: সৎভাবে কাজ, স্বার্থ সংঘাত এড়ানো, গোপন লাভ না করা।",example:"পরিচালক নিজ কোম্পানির সাথে চুক্তি করলে স্বার্থ প্রকাশ করতে হবে।",refs:[{act:"কোম্পানি আইন",section:"ধারা ৯০-১১৭",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          hi: {area:"कंपनी कानून",section:"धारा 90-117",act:"कंपनी अधिनियम",explanation:"निदेशक कंपनी का प्रबंधन करते हैं। प्राइवेट: 2+, पब्लिक: 3+। कर्तव्य: सद्भावना, हित संघर्ष से बचना।",example:"निदेशक को अपनी कंपनी के साथ अनुबंध का खुलासा करना होगा।",refs:[{act:"कंपनी अधिनियम",section:"धारा 90-117",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          ar: {area:"قانون الشركات",section:"المواد 90-117",act:"قانون الشركات",explanation:"المديرون يديرون الشركة. خاصة: 2+، عامة: 3+. الواجبات: حسن النية، تجنب تضارب المصالح.",example:"يجب على المدير الإفصاح عن عقوده مع شركته الخاصة.",refs:[{act:"قانون الشركات",section:"المواد 90-117",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]}
+        },
+        confidence: 93
+      },
+      agm_shareholders: {
+        keywords: ["AGM","annual general meeting","shareholder","shareholder right","meeting","dividend","voting","EGM","extraordinary"],
+        section: "Sections 81-89",
+        followups: ["How to call EGM?", "Shareholder voting rights?"],
+        answer: {
+          en: {
+            area: "Company Law",
+            section: "Sections 81-89, Companies Act 1994",
+            act: "Companies Act, 1994",
+            explanation: `<strong>ANNUAL GENERAL MEETING (AGM)</strong>
+
+<strong>Requirements:</strong>
+• Must be held EVERY YEAR (Sec 81)
+• First AGM within 18 months of incorporation
+• Subsequent AGMs within 15 months of previous
+• Minimum 21 days advance notice
+
+<strong>AGM Business:</strong>
+• Adopt annual accounts
+• Declare dividends
+• Appoint/reappoint auditors
+• Elect directors
+
+<strong>SHAREHOLDERS' RIGHTS:</strong>
+• Vote at meetings (1 share = 1 vote, unless otherwise)
+• Receive dividends when declared
+• Inspect company books
+• Attend general meetings
+• Receive annual accounts
+• Sue on behalf of company (derivative action)
+
+<strong>Extraordinary General Meeting (EGM):</strong>
+• Called for urgent/special matters
+• Shorter notice allowed in some cases`,
+            example: `<strong>Re-Volt AGM:</strong> Re-Volt holds AGM every year in Dhaka. Shareholders approve financial statements, declare 15% dividend, and reappoint the auditor. All shareholders received 21-day notice.`,
+            refs: [{act:"Companies Act, 1994", section:"Sections 81-89", url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]
+          },
+          bn: {area:"কোম্পানি আইন",section:"ধারা ৮১-৮৯",act:"কোম্পানি আইন",explanation:"AGM: প্রতি বছর আবশ্যক। ২১ দিন আগে নোটিশ। কাজ: হিসাব অনুমোদন, লভ্যাংশ, নিরীক্ষক নিয়োগ। শেয়ারহোল্ডার অধিকার: ভোট, লভ্যাংশ, বই পরিদর্শন।",example:"রি-ভোল্ট প্রতি বছর ঢাকায় AGM করে — ১৫% লভ্যাংশ ঘোষণা।",refs:[{act:"কোম্পানি আইন",section:"ধারা ৮১-৮৯",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          hi: {area:"कंपनी कानून",section:"धारा 81-89",act:"कंपनी अधिनियम",explanation:"AGM: हर साल आवश्यक। 21 दिन की सूचना। कार्य: खाते, लाभांश, लेखा परीक्षक। शेयरधारक अधिकार: वोट, लाभांश।",example:"रि-वोल्ट हर साल AGM करती है — 15% लाभांश।",refs:[{act:"कंपनी अधिनियम",section:"धारा 81-89",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]},
+          ar: {area:"قانون الشركات",section:"المواد 81-89",act:"قانون الشركات",explanation:"الاجتماع العام: سنوي. إشعار 21 يوم. الأعمال: الحسابات، الأرباح، المراجع. حقوق المساهمين: التصويت، الأرباح.",example:"ري-فولت تعقد اجتماعاً سنوياً — أرباح 15%.",refs:[{act:"قانون الشركات",section:"المواد 81-89",url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}]}
+        },
+        confidence: 92
+      }
+    }
+  },
+  partnership: {
+    name: "Partnership Act, 1932",
+    category: "Partnership Law",
+    icon: "fa-handshake",
+    color: "#EC4899",
+    url: "http://bdlaws.minlaw.gov.bd/act-details-163.html",
+    topics: {
+      partnership_formation: {
+        keywords: ["partnership","form partnership","partnership deed","partner agreement","start partnership","create partnership","partnership firm","define partnership"],
+        section: "Sections 4-7",
+        followups: ["Is registration compulsory?", "Partnership deed contents?"],
+        answer: {
+          en: {
+            area: "Partnership Law",
+            section: "Sections 4-7, Partnership Act 1932",
+            act: "Partnership Act, 1932",
+            explanation: `<strong>What is Partnership? (Sec 4)</strong>
+Relationship between persons who agree to share PROFITS of a business carried on by all or any of them acting for all.
+
+<strong>Essential Elements:</strong>
+• Minimum <strong>2 persons</strong>, maximum <strong>20</strong> (10 for banking)
+• <strong>Agreement</strong> (oral or written; deed recommended)
+• <strong>Lawful business</strong> carried on
+• <strong>Profit sharing</strong> (not just gross returns)
+• <strong>Mutual agency</strong> — each partner is agent of firm and other partners
+
+<strong>Registration:</strong>
+• NOT compulsory but highly recommended
+• Unregistered firm cannot sue third parties
+• Register with Registrar of Firms
+
+<strong>Partnership Deed should contain:</strong>
+• Name and address of firm and partners
+• Nature of business
+• Capital contribution
+• Profit/loss sharing ratio
+• Rights, duties, restrictions`,
+            example: `<strong>Re-Volt Origin:</strong> Before incorporating, Re-Volt's two founders formed a partnership with equal profit sharing (50:50), each contributing BDT 10 lakh capital, to develop the electrolyte drink formula.`,
+            refs: [{act:"Partnership Act, 1932", section:"Sections 4-7", url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]
+          },
+          bn: {area:"অংশীদারি আইন",section:"ধারা ৪-৭",act:"অংশীদারি আইন",explanation:"অংশীদারি: ব্যবসার লাভ ভাগ করার জন্য ব্যক্তিদের সম্পর্ক। উপাদান: ন্যূনতম ২, সর্বোচ্চ ২০ জন, চুক্তি, বৈধ ব্যবসা, লাভ ভাগ, পারস্পরিক এজেন্সি। নিবন্ধন বাধ্যতামূলক নয় কিন্তু সুপারিশকৃত।",example:"রি-ভোল্টের প্রতিষ্ঠাতারা প্রথমে ৫০:৫০ অংশীদারি গঠন করে।",refs:[{act:"অংশীদারি আইন",section:"ধারা ৪-৭",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          hi: {area:"साझेदारी कानून",section:"धारा 4-7",act:"साझेदारी अधिनियम",explanation:"साझेदारी: लाभ बांटने का संबंध। 2-20 साझेदार, करार, वैध व्यापार, लाभ बंटवारा, पारस्परिक एजेंसी। पंजीकरण अनिवार्य नहीं।",example:"रि-वोल्ट के संस्थापकों ने 50:50 साझेदारी बनाई।",refs:[{act:"साझेदारी अधिनियम",section:"धारा 4-7",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          ar: {area:"قانون الشراكة",section:"المواد 4-7",act:"قانون الشراكة",explanation:"الشراكة: علاقة لتقاسم أرباح العمل. 2-20 شريك، اتفاق، عمل مشروع، تقاسم الأرباح، وكالة متبادلة. التسجيل غير إلزامي.",example:"مؤسسو ري-فولت شكلوا شراكة 50:50.",refs:[{act:"قانون الشراكة",section:"المواد 4-7",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]}
+        },
+        confidence: 95
+      },
+      partnership_vs_company: {
+        keywords: ["partnership vs company","difference partnership company","compare partnership","partnership company differ","which better","LLP","limited liability"],
+        section: "Partnership Act & Companies Act",
+        followups: ["Which is better for startup?", "What is LLP?"],
+        answer: {
+          en: {
+            area: "Partnership Law vs Company Law",
+            section: "Partnership Act 1932 & Companies Act 1994",
+            act: "Comparative Analysis",
+            explanation: `<strong>PARTNERSHIP vs COMPANY — Key Differences</strong>
+
+| Feature | Partnership | Company |
+|---------|-------------|---------|
+| <strong>Registration</strong> | Optional | Mandatory (RJSC) |
+| <strong>Members</strong> | 2-20 | 2-50 (Pvt), 7+ (Pub) |
+| <strong>Legal Entity</strong> | NOT separate | Separate legal person |
+| <strong>Liability</strong> | Unlimited, joint & several | Limited to shares |
+| <strong>Perpetual Succession</strong> | No (dies with partner) | Yes |
+| <strong>Property</strong> | Partners' names | Company's name |
+| <strong>Transfer</strong> | Consent needed | Shares transferable |
+| <strong>Management</strong> | All partners | Board of Directors |
+| <strong>Audit</strong> | Not required | Mandatory |
+| <strong>Public Trust</strong> | Lower | Higher |
+
+<strong>Choose Partnership if:</strong> Small business, few trusted people, flexibility needed
+
+<strong>Choose Company if:</strong> Growth planned, limited liability needed, external investment expected`,
+            example: `<strong>Re-Volt Journey:</strong> Started as PARTNERSHIP (quick setup, 2 founders, flexibility) → Later converted to PRIVATE LIMITED COMPANY (limited liability, credibility for investors, perpetual existence).`,
+            refs: [
+              {act:"Partnership Act, 1932", section:"Full Act", url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"},
+              {act:"Companies Act, 1994", section:"Full Act", url:"http://bdlaws.minlaw.gov.bd/act-details-788.html"}
+            ]
+          },
+          bn: {area:"অংশীদারি বনাম কোম্পানি",section:"উভয় আইন",act:"তুলনামূলক বিশ্লেষণ",explanation:"পার্থক্য: নিবন্ধন (ঐচ্ছিক/বাধ্যতামূলক), দায় (অসীম/সীমিত), আইনি সত্তা (আলাদা নয়/আলাদা), চিরস্থায়িত্ব (নেই/আছে)। অংশীদারি: ছোট ব্যবসা, নমনীয়তা। কোম্পানি: বৃদ্ধি, বিনিয়োগ।",example:"রি-ভোল্ট অংশীদারি থেকে প্রাইভেট লিমিটেড কোম্পানিতে রূপান্তরিত হয়।",refs:[{act:"অংশীদারি আইন",section:"সম্পূর্ণ",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          hi: {area:"साझेदारी बनाम कंपनी",section:"दोनों अधिनियम",act:"तुलनात्मक विश्लेषण",explanation:"अंतर: पंजीकरण, दायित्व (असीमित/सीमित), कानूनी इकाई, स्थायित्व। साझेदारी: छोटा व्यापार। कंपनी: विकास, निवेश।",example:"रि-वोल्ट साझेदारी से प्राइवेट लिमिटेड में बदली।",refs:[{act:"साझेदारी अधिनियम",section:"पूर्ण",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          ar: {area:"الشراكة مقابل الشركة",section:"كلا القانونين",act:"تحليل مقارن",explanation:"الفروقات: التسجيل، المسؤولية (غير محدودة/محدودة)، الكيان القانوني، الاستمرارية. الشراكة: أعمال صغيرة. الشركة: نمو، استثمار.",example:"ري-فولت تحولت من شراكة إلى شركة خاصة محدودة.",refs:[{act:"قانون الشراكة",section:"كامل",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]}
+        },
+        confidence: 95
+      },
+      dissolution: {
+        keywords: ["dissolve","dissolution","close partnership","end partnership","wind up","terminate partnership","partnership end"],
+        section: "Sections 39-55",
+        followups: ["What happens to assets?", "Liability after dissolution?"],
+        answer: {
+          en: {
+            area: "Partnership Law",
+            section: "Sections 39-55, Partnership Act 1932",
+            act: "Partnership Act, 1932",
+            explanation: `<strong>Dissolution of Partnership</strong>
+
+<strong>1. Dissolution by Agreement (Sec 40):</strong>
+• All partners mutually agree to dissolve
+
+<strong>2. Compulsory Dissolution (Sec 41):</strong>
+• All partners (except one) become insolvent
+• Business becomes illegal
+
+<strong>3. Dissolution by Notice (Sec 43):</strong>
+• Partnership at will — any partner can give notice
+
+<strong>4. Dissolution by Court (Sec 44):</strong>
+• Partner becomes of unsound mind
+• Partner guilty of misconduct
+• Persistent breach of agreement
+• Business can only run at loss
+• Just and equitable grounds
+
+<strong>Settlement of Accounts (Sec 48):</strong>
+1. Pay third-party debts
+2. Repay partners' loans to firm
+3. Return partners' capital
+4. Distribute surplus as profits`,
+            example: `<strong>Re-Volt Scenario:</strong> If the founding partners of Re-Volt's original partnership had disagreed, they could dissolve by mutual agreement, settle all supplier debts first, return each partner's BDT 10 lakh capital, then split remaining assets 50:50.`,
+            refs: [{act:"Partnership Act, 1932", section:"Sections 39-55", url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]
+          },
+          bn: {area:"অংশীদারি আইন",section:"ধারা ৩৯-৫৫",act:"অংশীদারি আইন",explanation:"বিলুপ্তি: ১) চুক্তি অনুযায়ী ২) বাধ্যতামূলক (দেউলিয়া/অবৈধ) ৩) নোটিশ দ্বারা ৪) আদালতের আদেশে। নিষ্পত্তি: তৃতীয় পক্ষের ঋণ → অংশীদারদের ঋণ → মূলধন → উদ্বৃত্ত।",example:"অংশীদারি বিলুপ্তিতে প্রথমে সরবরাহকারীদের ঋণ, তারপর মূলধন ফেরত, অবশিষ্ট ভাগ।",refs:[{act:"অংশীদারি আইন",section:"ধারা ৩৯-৫৫",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          hi: {area:"साझेदारी कानून",section:"धारा 39-55",act:"साझेदारी अधिनियम",explanation:"विघटन: करार, अनिवार्य, नोटिस, न्यायालय द्वारा। निपटान: तृतीय पक्ष ऋण → साझेदार ऋण → पूंजी → अधिशेष।",example:"विघटन में पहले ऋण, फिर पूंजी वापसी, शेष बंटवारा।",refs:[{act:"साझेदारी अधिनियम",section:"धारा 39-55",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          ar: {area:"قانون الشراكة",section:"المواد 39-55",act:"قانون الشراكة",explanation:"الحل: بالاتفاق، إلزامي، بالإشعار، بأمر المحكمة. التسوية: ديون الغير ← قروض الشركاء ← رأس المال ← الفائض.",example:"عند الحل: أولاً الديون، ثم رأس المال، ثم توزيع الباقي.",refs:[{act:"قانون الشراكة",section:"المواد 39-55",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]}
+        },
+        confidence: 93
+      },
+      partner_rights_duties: {
+        keywords: ["partner right","partner duty","profit share","partner liability","obligation partner","partner responsibility","mutual rights"],
+        section: "Sections 9-17",
+        followups: ["Can partner compete with firm?", "Partner's implied authority?"],
+        answer: {
+          en: {
+            area: "Partnership Law",
+            section: "Sections 9-17, Partnership Act 1932",
+            act: "Partnership Act, 1932",
+            explanation: `<strong>Partners' RIGHTS (Sec 12-13):</strong>
+• Take part in business conduct
+• Be consulted on decisions
+• Access and inspect books
+• Share profits equally (unless agreed otherwise)
+• Receive interest on capital beyond agreed share (6% p.a.)
+• Receive indemnity for expenses in firm's business
+
+<strong>Partners' DUTIES (Sec 9-11):</strong>
+• Carry on business to greatest common advantage
+• Be just and faithful to other partners
+• Render true accounts
+• Indemnify for loss caused by fraud
+• NOT make secret profit
+• NOT compete with firm
+• Share losses equally
+
+<strong>Liability of Partners:</strong>
+• Joint and several (unlimited) for firm's debts
+• Each partner can be sued for full amount
+• New partner not liable for pre-admission debts
+• Retiring partner liable for pre-retirement debts`,
+            example: `<strong>Re-Volt Scenario:</strong> If Partner A secretly sold Re-Volt's formula to a competitor and made BDT 20 lakh, this is breach of duty. Partner A must hand over this secret profit to the firm.`,
+            refs: [{act:"Partnership Act, 1932", section:"Sections 9-17", url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]
+          },
+          bn: {area:"অংশীদারি আইন",section:"ধারা ৯-১৭",act:"অংশীদারি আইন",explanation:"অধিকার: ব্যবসায় অংশগ্রহণ, পরামর্শ, হিসাব পরিদর্শন, সমান লাভ ভাগ। কর্তব্য: সৎভাবে কাজ, সত্য হিসাব, গোপন লাভ না করা, প্রতিযোগিতা না করা। দায়: যৌথ ও একক, অসীম।",example:"অংশীদার গোপনে ফর্মুলা বিক্রি করলে সেই লাভ ফার্মকে দিতে হবে।",refs:[{act:"অংশীদারি আইন",section:"ধারা ৯-১৭",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          hi: {area:"साझेदारी कानून",section:"धारा 9-17",act:"साझेदारी अधिनियम",explanation:"अधिकार: व्यापार में भाग, परामर्श, खाते देखना, समान लाभ। कर्तव्य: ईमानदारी, सच्चे खाते, गुप्त लाभ न लेना। दायित्व: संयुक्त और असीमित।",example:"गुप्त लाभ फर्म को देना होगा।",refs:[{act:"साझेदारी अधिनियम",section:"धारा 9-17",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]},
+          ar: {area:"قانون الشراكة",section:"المواد 9-17",act:"قانون الشراكة",explanation:"الحقوق: المشاركة، الاستشارة، فحص الحسابات، تقاسم الأرباح. الواجبات: الأمانة، حسابات صادقة، عدم الربح السري. المسؤولية: مشتركة وغير محدودة.",example:"الربح السري يجب تسليمه للشركة.",refs:[{act:"قانون الشراكة",section:"المواد 9-17",url:"http://bdlaws.minlaw.gov.bd/act-details-163.html"}]}
+        },
+        confidence: 92
+      }
+    }
+  }
+};
+
+// ========================================================================
+// APPLICATION STATE
+// ========================================================================
+let state = {
+  lang: localStorage.getItem('revolt_lang') || 'en',
+  theme: localStorage.getItem('revolt_theme') || 'light',
+  category: 'all',
+  chatHistory: [],
+  sessions: JSON.parse(localStorage.getItem('revolt_sessions') || '[]'),
+  isRecording: false,
+  recognition: null,
+  synth: window.speechSynthesis,
+  settings: {
+    voiceOutput: true,
+    voiceInput: true,
+    saveHistory: true,
+    showFollowup: true,
+    fontSize: 14
+  },
+  rateLimit: { count: 0, lastReset: Date.now() }
+};
+
+// ========================================================================
+// INITIALIZATION
+// ========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  initParticles();
+  initLanguage();
+  renderSessions();
+  updateDarkModeToggle();
+});
+
+function initTheme() {
+  if (state.theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  updateThemeIcon();
+}
+
+function initParticles() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 20 + 's';
+    particle.style.animationDuration = (15 + Math.random() * 15) + 's';
+    container.appendChild(particle);
+  }
+}
+
+function initLanguage() {
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === state.lang);
+  });
+  updatePlaceholder();
+}
+
+// ========================================================================
+// THEME FUNCTIONS
+// ========================================================================
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const newTheme = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  state.theme = newTheme;
+  localStorage.setItem('revolt_theme', newTheme);
+  updateThemeIcon();
+  updateDarkModeToggle();
+}
+
+function updateThemeIcon() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.getElementById('themeIcon').className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+function updateDarkModeToggle() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const toggle = document.getElementById('darkModeToggle');
+  if (toggle) toggle.classList.toggle('active', isDark);
+}
+
+// ========================================================================
+// SIDEBAR FUNCTIONS
+// ========================================================================
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function toggleSection(id) {
+  document.getElementById(id).classList.toggle('collapsed');
+}
+
+// ========================================================================
+// CATEGORY SELECTION
+// ========================================================================
+function selectCategory(el, cat) {
+  document.querySelectorAll('.sidebar .nav-item').forEach(n => n.classList.remove('active'));
+  if (el) el.classList.add('active');
+  state.category = cat;
+  
+  // Sync with pills
+  document.querySelectorAll('.cat-pill').forEach(p => {
+    p.classList.toggle('active', p.textContent.toLowerCase().includes(cat === 'all' ? 'all' : cat.substring(0, 4)));
+  });
+  
+  if (window.innerWidth <= 768) closeSidebar();
+  showToast(`Category: ${cat === 'all' ? 'All Topics' : cat.charAt(0).toUpperCase() + cat.slice(1)}`, 'info');
+}
+
+function selectCatPill(el, cat) {
+  document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  state.category = cat;
+}
+
+// ========================================================================
+// LANGUAGE
+// ========================================================================
+function toggleLangDropdown() {
+  document.getElementById('langDropdown').classList.toggle('show');
+}
+
+function setLanguage(lang) {
+  state.lang = lang;
+  localStorage.setItem('revolt_lang', lang);
+  document.querySelectorAll('.lang-option').forEach(o => {
+    o.classList.toggle('active', o.dataset.lang === lang);
+  });
+  document.getElementById('langDropdown').classList.remove('show');
+  updatePlaceholder();
+  const names = { en: 'English', bn: 'বাংলা', hi: 'हिन्दी', ar: 'العربية' };
+  showToast(`Language: ${names[lang]}`, 'success');
+}
+
+function updatePlaceholder() {
+  const placeholders = {
+    en: 'Ask a legal question about Bangladesh business law...',
+    bn: 'বাংলাদেশ ব্যবসায়িক আইন সম্পর্কে একটি প্রশ্ন করুন...',
+    hi: 'बांग्लादेश व्यापार कानून के बारे में प्रश्न पूछें...',
+    ar: 'اطرح سؤالاً عن قانون الأعمال في بنغلاديش...'
+  };
+  document.getElementById('userInput').placeholder = placeholders[state.lang] || placeholders.en;
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-dropdown-container')) {
+    document.getElementById('langDropdown').classList.remove('show');
+  }
+});
+
+// ========================================================================
+// PANELS
+// ========================================================================
+function openRefSidebar() {
+  document.getElementById('refSidebar').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+  if (window.innerWidth <= 768) closeSidebar();
+}
+
+function closeRefSidebar() {
+  document.getElementById('refSidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function openSettings() {
+  document.getElementById('settingsPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+  if (window.innerWidth <= 768) closeSidebar();
+}
+
+function closeSettings() {
+  document.getElementById('settingsPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+function openCompanyModal() {
+  document.getElementById('companyModal').classList.add('show');
+  if (window.innerWidth <= 768) closeSidebar();
+}
+
+function closeCompanyModal() {
+  document.getElementById('companyModal').classList.remove('show');
+}
+
+document.getElementById('overlay').addEventListener('click', () => {
+  closeSidebar();
+  closeRefSidebar();
+  closeSettings();
+});
+
+// ========================================================================
+// SETTINGS TOGGLES
+// ========================================================================
+function toggleVoiceOutput(el) {
+  el.classList.toggle('active');
+  state.settings.voiceOutput = el.classList.contains('active');
+}
+
+function toggleVoiceInputSetting(el) {
+  el.classList.toggle('active');
+  state.settings.voiceInput = el.classList.contains('active');
+}
+
+function toggleSaveHistory(el) {
+  el.classList.toggle('active');
+  state.settings.saveHistory = el.classList.contains('active');
+}
+
+function toggleFollowup(el) {
+  el.classList.toggle('active');
+  state.settings.showFollowup = el.classList.contains('active');
+}
+
+function changeFontSize(size) {
+  state.settings.fontSize = parseInt(size);
+  document.querySelectorAll('.msg-bubble').forEach(b => {
+    b.style.fontSize = size + 'px';
+  });
+}
+
+// ========================================================================
+// SANITIZE & RATE LIMIT
+// ========================================================================
+function sanitize(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function checkRateLimit() {
+  const now = Date.now();
+  if (now - state.rateLimit.lastReset > 60000) {
+    state.rateLimit.count = 0;
+    state.rateLimit.lastReset = now;
+  }
+  state.rateLimit.count++;
+  return state.rateLimit.count <= 30;
+}
+
+// ========================================================================
+// INTENT CLASSIFIER
+// ========================================================================
+function classifyIntent(query) {
+  const q = query.toLowerCase().trim();
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for (const [catKey, cat] of Object.entries(LEGAL_KB)) {
+    if (state.category !== 'all' && state.category !== catKey) continue;
+    
+    for (const [topicKey, topic] of Object.entries(cat.topics)) {
+      for (const kw of topic.keywords) {
+        const regex = new RegExp(kw, 'i');
+        if (regex.test(q)) {
+          const score = kw.length + (topic.confidence || 85);
+          if (score > bestScore) {
+            bestScore = score;
+            bestMatch = {
+              category: catKey,
+              catName: cat.category,
+              actName: cat.name,
+              actUrl: cat.url,
+              icon: cat.icon,
+              color: cat.color,
+              topicKey,
+              topic,
+              score: topic.confidence || 85
+            };
+          }
+        }
+      }
+    }
+  }
+
+  // Fallback: search all categories
+  if (!bestMatch && state.category !== 'all') {
+    for (const [catKey, cat] of Object.entries(LEGAL_KB)) {
+      for (const [topicKey, topic] of Object.entries(cat.topics)) {
+        for (const kw of topic.keywords) {
+          const regex = new RegExp(kw, 'i');
+          if (regex.test(q)) {
+            const score = kw.length + (topic.confidence || 85);
+            if (score > bestScore) {
+              bestScore = score;
+              bestMatch = {
+                category: catKey,
+                catName: cat.category,
+                actName: cat.name,
+                actUrl: cat.url,
+                icon: cat.icon,
+                color: cat.color,
+                topicKey,
+                topic,
+                score: topic.confidence || 85
+              };
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return bestMatch;
+}
+
+// ========================================================================
+// MESSAGING
+// ========================================================================
+function sendMessage() {
+  const input = document.getElementById('userInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  if (!checkRateLimit()) {
+    showToast('Please wait before sending more messages.', 'warning');
+    return;
+  }
+
+  input.value = '';
+  autoResize(input);
+
+  document.getElementById('welcomeScreen').style.display = 'none';
+  addMessage('user', sanitize(text));
+  showTyping();
+
+  setTimeout(() => {
+    hideTyping();
+    processQuery(text);
+  }, 800 + Math.random() * 600);
+}
+
+function askQuick(q) {
+  document.getElementById('userInput').value = q;
+  sendMessage();
+}
+
+function handleKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+}
+
+function addMessage(role, content, data = null) {
+  const area = document.getElementById('messagesArea');
+  const group = document.createElement('div');
+  group.className = 'message-group';
+  
+  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const msgId = 'msg_' + Date.now();
+
+  let extraContent = '';
+  if (data) {
+    // Confidence badge
+    if (data.confidence) {
+      extraContent += `<span class="confidence-badge ${data.confidence >= 90 ? 'high' : 'medium'}">
+        <i class="fas fa-chart-simple"></i> ${data.confidence}% Confidence
+      </span>`;
+    }
+    // Category badge
+    if (data.catName) {
+      extraContent += `<span class="category-badge"><i class="fas ${data.icon || 'fa-scale-balanced'}"></i> ${data.catName}</span>`;
+    }
+    // Reference panel
+    if (data.refs && data.refs.length) {
+      extraContent += buildRefPanel(data.refs);
+    }
+    // Follow-up questions
+    if (data.followups && data.followups.length && state.settings.showFollowup) {
+      extraContent += `
+        <div class="followup-section">
+          <div class="followup-title"><i class="fas fa-lightbulb"></i> Related Questions</div>
+          <div class="followup-btns">
+            ${data.followups.map(f => `<button class="followup-btn" onclick="askQuick('${f.replace(/'/g, "\\'")}')">${f}</button>`).join('')}
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  group.innerHTML = `
+    <div class="message-row ${role}">
+      <div class="msg-avatar ${role}">${role === 'ai' ? '⚖' : '<i class="fas fa-user"></i>'}</div>
+      <div class="msg-content">
+        <div class="msg-header">
+          <span class="msg-label">${role === 'ai' ? 'Re-Volt Legal AI' : 'You'}</span>
+          <span class="msg-time">${time}</span>
+        </div>
+        <div class="msg-bubble" id="${msgId}" style="font-size:${state.settings.fontSize}px">${content}</div>
+        ${role === 'ai' ? `
+          <div class="msg-footer">
+            ${extraContent}
+            <div class="msg-actions">
+              <button class="msg-action-btn" onclick="copyMsg('${msgId}')"><i class="fas fa-copy"></i> Copy</button>
+              <button class="msg-action-btn" onclick="speakMsg('${msgId}')"><i class="fas fa-volume-high"></i> Speak</button>
+              <button class="msg-action-btn" onclick="likeMsg(this)"><i class="far fa-thumbs-up"></i></button>
+              <button class="msg-action-btn" onclick="dislikeMsg(this)"><i class="far fa-thumbs-down"></i></button>
+            </div>
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `;
+
+  area.appendChild(group);
+  state.chatHistory.push({ role, content: content.replace(/<[^>]*>/g, ''), time });
+  scrollToBottom();
+}
+
+function buildRefPanel(refs) {
+  const items = refs.map(r => `
+    <div class="ref-item">
+      <div class="ref-item-title"><i class="fas fa-bookmark"></i> ${r.act} — ${r.section}</div>
+      <a href="${r.url}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> View Official Source</a>
+    </div>
+  `).join('');
+
+  return `
+    <div class="ref-panel">
+      <button class="ref-toggle" onclick="toggleRefPanel(this)">
+        <span><i class="fas fa-scale-balanced"></i> Legal Sources & References</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="ref-body">
+        <div class="ref-body-inner">
+          ${items}
+          <div class="ref-footer">
+            <i class="fas fa-shield-check"></i>
+            Sources: Bangladesh Law Portal • Parliament • Ministry of Law • RJSC
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function toggleRefPanel(btn) {
+  btn.classList.toggle('open');
+  btn.nextElementSibling.classList.toggle('open');
+}
+
+function showTyping() {
+  const area = document.getElementById('messagesArea');
+  const div = document.createElement('div');
+  div.id = 'typingIndicator';
+  div.className = 'typing-indicator';
+  div.innerHTML = `
+    <div class="msg-avatar ai" style="width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;">⚖</div>
+    <div class="typing-bubble">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+      <div class="typing-text">Analyzing legal context...</div>
+    </div>
+  `;
+  area.appendChild(div);
+  scrollToBottom();
+}
+
+function hideTyping() {
+  const t = document.getElementById('typingIndicator');
+  if (t) t.remove();
+}
+
+function scrollToBottom() {
+  const c = document.getElementById('chatContainer');
+  setTimeout(() => c.scrollTop = c.scrollHeight, 50);
+}
+
+// ========================================================================
+// PROCESS QUERY
+// ========================================================================
+function processQuery(query) {
+  const match = classifyIntent(query);
+
+  if (match) {
+    const lang = state.lang;
+    const answerData = match.topic.answer[lang] || match.topic.answer.en;
+    
+    let formattedAnswer = `
+      <div class="legal-header">
+        <span class="legal-tag area"><i class="fas fa-scale-balanced"></i> ${answerData.area}</span>
+        <span class="legal-tag section"><i class="fas fa-bookmark"></i> ${answerData.section}</span>
+        <span class="legal-tag act"><i class="fas fa-book"></i> ${answerData.act}</span>
+      </div>
+      <div class="section-block">
+        <div class="section-title"><i class="fas fa-info-circle"></i> Explanation</div>
+        ${answerData.explanation.replace(/\n/g, '<br>')}
+      </div>
+      <div class="example-block">
+        <div class="example-title"><i class="fas fa-lightbulb"></i> Practical Example</div>
+        ${answerData.example}
+      </div>
+    `;
+
+    addMessage('ai', formattedAnswer, {
+      confidence: match.score,
+      catName: match.catName,
+      icon: match.icon,
+      refs: answerData.refs,
+      followups: match.topic.followups
+    });
+  } else {
+    const fallback = getFallbackResponse();
+    addMessage('ai', fallback);
+  }
+
+  saveSession(query);
+}
+
+function getFallbackResponse() {
+  const responses = {
+    en: `<div class="section-block">
+      <div class="section-title"><i class="fas fa-info-circle"></i> How Can I Help?</div>
+      I couldn't find a specific legal answer for your query. I can help you with:
+      <ul>
+        <li><strong>Contract Law</strong> — Offer, acceptance, consideration, breach, agency</li>
+        <li><strong>Sale of Goods</strong> — Sale agreements, conditions, unpaid seller rights</li>
+        <li><strong>Negotiable Instruments</strong> — Cheque bounce, promissory notes, bills</li>
+        <li><strong>Company Law</strong> — Registration, directors, AGM, memorandum</li>
+        <li><strong>Partnership Law</strong> — Formation, rights, dissolution</li>
+      </ul>
+      Try asking questions like:
+      <br>• "What is a valid contract?"
+      <br>• "How to register a company in Bangladesh?"
+      <br>• "What happens if a cheque bounces?"
+    </div>`,
+    bn: `<div class="section-block">
+      <div class="section-title"><i class="fas fa-info-circle"></i> আমি কীভাবে সাহায্য করতে পারি?</div>
+      আপনার প্রশ্নের নির্দিষ্ট উত্তর পাওয়া যায়নি। আমি এই বিষয়ে সাহায্য করতে পারি: চুক্তি আইন, পণ্য বিক্রয়, হস্তান্তরযোগ্য দলিল, কোম্পানি আইন, অংশীদারি আইন।
+    </div>`,
+    hi: `<div class="section-block">
+      <div class="section-title"><i class="fas fa-info-circle"></i> मैं कैसे मदद कर सकता हूं?</div>
+      आपके प्रश्न का विशिष्ट उत्तर नहीं मिला। मैं इन विषयों में मदद कर सकता हूं: अनुबंध कानून, माल बिक्री, परक्राम्य लिखत, कंपनी कानून, साझेदारी कानून।
+    </div>`,
+    ar: `<div class="section-block">
+      <div class="section-title"><i class="fas fa-info-circle"></i> كيف يمكنني المساعدة؟</div>
+      لم أجد إجابة محددة لسؤالك. يمكنني المساعدة في: قانون العقود، بيع البضائع، الأوراق التجارية، قانون الشركات، قانون الشراكة.
+    </div>`
+  };
+  return responses[state.lang] || responses.en;
+}
+
+// ========================================================================
+// SESSION MANAGEMENT
+// ========================================================================
+function saveSession(query) {
+  if (!state.settings.saveHistory) return;
+  
+  const title = query.substring(0, 35) + (query.length > 35 ? '...' : '');
+  const exists = state.sessions.find(s => s.title === title);
+  
+  if (!exists) {
+    state.sessions.unshift({
+      title,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      date: new Date().toLocaleDateString()
+    });
+    if (state.sessions.length > 20) state.sessions.pop();
+    localStorage.setItem('revolt_sessions', JSON.stringify(state.sessions));
+    renderSessions();
+  }
+}
+
+function renderSessions() {
+  const list = document.getElementById('chatHistoryList');
+  if (state.sessions.length === 0) {
+    list.innerHTML = `
+      <div style="padding:16px;text-align:center;color:var(--text3);font-size:12px;">
+        <i class="fas fa-comments" style="font-size:24px;margin-bottom:8px;display:block;opacity:0.5;"></i>
+        No chat history yet
+      </div>
+    `;
+    return;
+  }
+  
+  list.innerHTML = state.sessions.slice(0, 10).map((s, i) => `
+    <div class="chat-history-item" onclick="askQuick('${s.title.replace(/'/g, "\\'")}')">
+      <i class="fas fa-message"></i>
+      <span>${sanitize(s.title)}</span>
+      <span class="delete-chat" onclick="event.stopPropagation();deleteSession(${i})"><i class="fas fa-trash"></i></span>
+    </div>
+  `).join('');
+}
+
+function deleteSession(index) {
+  state.sessions.splice(index, 1);
+  localStorage.setItem('revolt_sessions', JSON.stringify(state.sessions));
+  renderSessions();
+  showToast('Chat deleted', 'info');
+}
+
+// ========================================================================
+// CHAT CONTROLS
+// ========================================================================
+function newChat() {
+  state.chatHistory = [];
+  document.getElementById('messagesArea').innerHTML = '';
+  document.getElementById('welcomeScreen').style.display = 'flex';
+  if (window.innerWidth <= 768) closeSidebar();
+  showToast('New chat started', 'success');
+}
+
+function clearChat() {
+  state.chatHistory = [];
+  state.sessions = [];
+  localStorage.removeItem('revolt_sessions');
+  document.getElementById('messagesArea').innerHTML = '';
+  document.getElementById('welcomeScreen').style.display = 'flex';
+  renderSessions();
+  showToast('All chats cleared', 'success');
+}
+
+// ========================================================================
+// MESSAGE ACTIONS
+// ========================================================================
+function copyMsg(id) {
+  const bubble = document.getElementById(id);
+  const text = bubble.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Copied to clipboard', 'success');
+  });
+}
+
+function speakMsg(id) {
+  if (!state.settings.voiceOutput) {
+    showToast('Voice output is disabled', 'warning');
+    return;
+  }
+  
+  if (state.synth.speaking) {
+    state.synth.cancel();
+    return;
+  }
+  
+  const bubble = document.getElementById(id);
+  const text = bubble.innerText;
+  const utter = new SpeechSynthesisUtterance(text);
+  
+  const langMap = { en: 'en-US', bn: 'bn-BD', hi: 'hi-IN', ar: 'ar-SA' };
+  utter.lang = langMap[state.lang] || 'en-US';
+  utter.rate = 0.9;
+
+  document.getElementById('stopSpeakBtn').style.display = 'flex';
+  
+  utter.onend = () => {
+    document.getElementById('stopSpeakBtn').style.display = 'none';
+  };
+
+  state.synth.speak(utter);
+  showToast('Speaking...', 'info');
+}
+
+function stopSpeaking() {
+  state.synth.cancel();
+  document.getElementById('stopSpeakBtn').style.display = 'none';
+  showToast('Stopped', 'info');
+}
+
+function likeMsg(btn) {
+  btn.classList.toggle('liked');
+  if (btn.classList.contains('liked')) {
+    btn.innerHTML = '<i class="fas fa-thumbs-up"></i>';
+    showToast('Thanks for your feedback!', 'success');
+  } else {
+    btn.innerHTML = '<i class="far fa-thumbs-up"></i>';
+  }
+}
+
+function dislikeMsg(btn) {
+  btn.classList.toggle('disliked');
+  if (btn.classList.contains('disliked')) {
+    btn.innerHTML = '<i class="fas fa-thumbs-down"></i>';
+    showToast('We\'ll improve this response', 'info');
+  } else {
+    btn.innerHTML = '<i class="far fa-thumbs-down"></i>';
+  }
+}
+
+// ========================================================================
+// VOICE INPUT
+// ========================================================================
+function toggleVoiceInput() {
+  if (!state.settings.voiceInput) {
+    showToast('Voice input is disabled in settings', 'warning');
+    return;
+  }
+
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    showToast('Voice input not supported in this browser', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('voiceBtn');
+
+  if (state.isRecording) {
+    state.recognition.stop();
+    state.isRecording = false;
+    btn.classList.remove('recording');
+    btn.innerHTML = '<i class="fas fa-microphone"></i>';
+    return;
+  }
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  state.recognition = new SpeechRecognition();
+  
+  const langMap = { en: 'en-US', bn: 'bn-BD', hi: 'hi-IN', ar: 'ar-SA' };
+  state.recognition.lang = langMap[state.lang] || 'en-US';
+  state.recognition.interimResults = false;
+  state.recognition.continuous = false;
+
+  state.recognition.onstart = () => {
+    state.isRecording = true;
+    btn.classList.add('recording');
+    btn.innerHTML = '<i class="fas fa-stop"></i>';
+    showToast('Listening... Speak now', 'info');
+  };
+
+  state.recognition.onresult = (e) => {
+    const transcript = e.results[0][0].transcript;
+    document.getElementById('userInput').value = transcript;
+    autoResize(document.getElementById('userInput'));
+  };
+
+  state.recognition.onerror = (e) => {
+    state.isRecording = false;
+    btn.classList.remove('recording');
+    btn.innerHTML = '<i class="fas fa-microphone"></i>';
+    if (e.error !== 'no-speech') {
+      showToast('Voice error: ' + e.error, 'error');
+    }
+  };
+
+  state.recognition.onend = () => {
+    state.isRecording = false;
+    btn.classList.remove('recording');
+    btn.innerHTML = '<i class="fas fa-microphone"></i>';
+  };
+
+  state.recognition.start();
+}
+
+// ========================================================================
+// EXPORT FUNCTIONS
+// ========================================================================
+function exportPDF() {
+  if (state.chatHistory.length === 0) {
+    showToast('No chat to export', 'warning');
+    return;
+  }
+
+  let content = `
+RE-VOLT LEGAL AI - Chat Export
+================================
+Company: Re-Volt Beverage Ltd.
+Date: ${new Date().toLocaleString()}
+================================
+
+`;
+  
+  state.chatHistory.forEach(m => {
+    content += `[${m.role.toUpperCase()}] ${m.time}\n${m.content}\n\n---\n\n`;
+  });
+  
+  content += `
+================================
+DISCLAIMER
+This chatbot provides educational legal information only 
+and does not constitute professional legal advice.
+================================
+`;
+
+  const blob = new Blob([content], { type: 'text/plain' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `revolt_legal_chat_${Date.now()}.txt`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+  showToast('Chat exported successfully', 'success');
+}
+
+function exportTXT() {
+  exportPDF(); // Same format for now
+}
+
+function printChat() {
+  window.print();
+}
+
+function shareChat() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Re-Volt Legal AI Chat',
+      text: 'Check out this legal information from Re-Volt Legal AI!',
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    showToast('Link copied to clipboard', 'success');
+  }
+}
+
+// ========================================================================
+// TOAST NOTIFICATIONS
+// ========================================================================
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  
+  const icons = {
+    success: 'fa-check-circle',
+    error: 'fa-exclamation-circle',
+    warning: 'fa-exclamation-triangle',
+    info: 'fa-info-circle'
+  };
+  
+  toast.innerHTML = `<i class="fas ${icons[type]}"></i> ${message}`;
+  container.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.style.animation = 'slideUp 0.3s ease reverse';
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// ========================================================================
+// KEYBOARD SHORTCUTS
+// ========================================================================
+document.addEventListener('keydown', (e) => {
+  // Ctrl/Cmd + K = Focus input
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    document.getElementById('userInput').focus();
+  }
+  // Escape = Close modals
+  if (e.key === 'Escape') {
+    closeRefSidebar();
+    closeSettings();
+    closeCompanyModal();
+  }
+});
+</script>
+</body>
+</html>
